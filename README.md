@@ -54,7 +54,17 @@ Clone o repositório em sua máquina em uma pasta local
 
 `npm install jsonwebtoken`
 
-
+----------------------
+Você deverá criar a documentação no formato README , explicando a estrutura do
+projeto, como executá-lo localmente, e outras informações relevantes.
+Informar como rodar o sistema - como uma pessoa que nunca rodou um node.
+como executar - baixa .env, npm intstall…..
+resumo que esta o projeto - separou uma pasta para controllers, explicar como foi separado os plano de negocio,
+consumir api externa - mapa do google - ferramenta gratuita + logica programação
+Colocar sobre a production e develop
+Instalação do Node.js e configuração do ambiente de desenvolvimento.
+Configuração do banco de dados relacional com o Sequelize - Documentar o modelo de banco de dados e as migrações utilizadas.
+-----------------------
 
 ## 🛠️ Construído com
 
