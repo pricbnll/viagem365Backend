@@ -38,9 +38,9 @@ Clone o repositório em sua máquina em uma pasta local
 
 `npm install pg`
 
-### instalar o CLI do sequelize
+### instalar o CLI do sequelize nas devDependencies
 
-`npm install -g sequelize-cli`
+`npm install sequelize-cli --save-dev`
 
 ### instalar o dotenv
 
@@ -49,6 +49,9 @@ Clone o repositório em sua máquina em uma pasta local
 ### instalar o JsonWebToken ( JWT )
 
 `npm install jsonwebtoken`
+
+### instalar o Nodemon nas devDependencies
+`npm install nodemon --save-dev`
 
 ### Preencher o .env com seus dados
 ```
