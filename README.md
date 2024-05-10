@@ -28,11 +28,7 @@ Clone o repositório em sua máquina em uma pasta local
 2. Se for em ambiente local: `npm install --dev`
 3. `cp .env_example .env`
 
-### Sempre que precisas rodar o repositório em ambiente local
-
-1. `npm run start:dev`
-
-## Instale, se não tem em sua maquina, as bibliotecas utilizadas:
+## Instale as bibliotecas utilizadas:
 
 ### instalar o sequelize
 
@@ -53,6 +49,22 @@ Clone o repositório em sua máquina em uma pasta local
 ### instalar o JsonWebToken ( JWT )
 
 `npm install jsonwebtoken`
+
+### Preencher o .env com seus dados
+```
+DIALECT=postgres 
+HOST=localhost
+USERNAMEDB=postgres #Qual o username da sua DataBase? Exemplo
+PASSWORDDB=postgres 'Qual a senha do seu DataBase? Exemplo
+DATABASE=viagem365 #Qual o nome da DataBase? Exemplo
+PORT=5432
+PORT_API=3365 #Qual a porta do seu servidor escolhido? Exemplo
+SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
+```
+
+### Sempre que precisas rodar o repositório em ambiente local
+
+1. `npm run start:dev`
 
 ----------------------
 Você deverá criar a documentação no formato README , explicando a estrutura do
