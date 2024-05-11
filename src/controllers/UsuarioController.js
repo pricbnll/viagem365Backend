@@ -11,7 +11,6 @@ class UsuarioController {
       const email = req.body.email;
       const senha = req.body.senha;
 
-    
       if (!nome) {
         return res.status(400).json({ mensagem: "O nome é obrigatório" });
       }
@@ -21,11 +20,11 @@ class UsuarioController {
         });
       }
 
-      //----------------------Regras de validação devem ser implementadas, como evitar o cadastro de pessoas com o mesmo CPF 
-     
-      if (!cpf) {
-        return res.status(400).json({ error: "CPF é obrigatório" });
+      const cpfValido = validarCPF(cpf);
+      if (!cpfValido) {
+        return res.status(400).json({ error: "CPF inválido." });
       }
+
       if (!endereco) {
         return res.status(400).json({ mensagem: "O endereco é obrigatório" });
       }
@@ -55,6 +54,7 @@ class UsuarioController {
     }
   }
 
+ 
   async listarTodos(req, res) {
     try {
       const usuario = await Usuario.findAll();
@@ -87,7 +87,6 @@ class UsuarioController {
         .json({ mensagem: "Não foi possível atualizar o cadastro do usuário" });
     }
   }
-
 
   async deletarUm(req, res) {
     const { id } = req.params;
@@ -123,10 +122,43 @@ class UsuarioController {
       res.status(500).json({ mensagem: "Erro ao deletar usuários." });
     }
   }
+}
+
+  function validarCPF(cpf) {
+    // Remover caracteres não numéricos do CPF
+    cpf = cpf.replace(/\D/g, '');
+
+    if (cpf.length !== 11) {
+        return false;
+    }
+    // Verificar se todos os dígitos são iguais, o que tornaria o CPF inválido
+    if (/^(\d)\1{10}$/.test(cpf)) {
+        return false;
+    }
+    // Calcular os dígitos verificadores
+    let soma = 0;
+    for (let i = 0; i < 9; i++) {
+        soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    let resto = soma % 11;
+    let digitoVerificador1 = resto < 2 ? 0 : 11 - resto;
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) {
+        soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    resto = soma % 11;
+    let digitoVerificador2 = resto < 2 ? 0 : 11 - resto;
+    // Verificar se os dígitos verificadores calculados são iguais aos dígitos verificadores do CPF
+    if (parseInt(cpf.charAt(9)) !== digitoVerificador1 || parseInt(cpf.charAt(10)) !== digitoVerificador2) {
+        return false;
+    }
+
+    return true;
+  }
 
 
   //POTENCIAL!!!! que traz o req.payload : usuarioRoutes.get("/usuarios/alterar_senha", auth,  async (req, res) => {id = req.payload.sub
 
 
-}
 module.exports = new UsuarioController();
