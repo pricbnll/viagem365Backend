@@ -11,6 +11,7 @@ class UsuarioController {
       const email = req.body.email;
       const senha = req.body.senha;
 
+    
       if (!nome) {
         return res.status(400).json({ mensagem: "O nome é obrigatório" });
       }
@@ -65,6 +66,50 @@ class UsuarioController {
     }
   }
 
+  async atualizar(req, res) {
+    try {
+      const { id } = req.params;
+
+      const usuario = await Usuario.findByPk(id);
+
+      if (!usuario) {
+        return res.status(404).json({ mensagem: "Usuário não encontrado" });
+      }
+      usuario.update(req.body);
+
+      await usuario.save();
+
+      res.status(200).json(usuario);
+    } catch (error) {
+      console.log(error.message);
+      res
+        .status(500)
+        .json({ mensagem: "Não foi possível atualizar o cadastro do usuário" });
+    }
+  }
+
+
+  async deletarUm(req, res) {
+    const { id } = req.params;
+    try {
+      const usuario = await Usuario.findByPk(id);
+      if (!usuario) {
+        return res.status(404).json({ mensagem: "Usuário não encontrado." });
+      }
+    
+      await Usuario.destroy({
+        where: {
+          id: id,
+        },
+      });
+
+      res.status(204).json();
+    } catch (error) {
+      console.error("Erro ao deletar usuário:", error);
+      res.status(500).json({ mensagem: "Erro ao deletar usuário." });
+    }
+  }
+
   async deletarTodos(req, res) {
     try {
       await Usuario.destroy({
@@ -78,6 +123,10 @@ class UsuarioController {
       res.status(500).json({ mensagem: "Erro ao deletar usuários." });
     }
   }
+
+
+  //POTENCIAL!!!! que traz o req.payload : usuarioRoutes.get("/usuarios/alterar_senha", auth,  async (req, res) => {id = req.payload.sub
+
 
 }
 module.exports = new UsuarioController();

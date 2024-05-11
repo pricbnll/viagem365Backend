@@ -1,4 +1,4 @@
-const Usuario = require("../models/Usuario");
+const Login = require("../models/Usuario");
 const { sign } = require("jsonwebtoken");
 
 
@@ -17,7 +17,7 @@ class LoginController {
         return res.status(400).json({ mensagem: "O senha é obrigatório" });
       }
     
-      const usuario = await Usuario.findOne({
+      const usuario = await Login.findOne({
         where: { email: email, senha: senha },
       });
 
