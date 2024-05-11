@@ -38,9 +38,9 @@ Clone o repositório em sua máquina em uma pasta local
 
 `npm install pg`
 
-### instalar o CLI do sequelize
+### instalar o CLI do sequelize nas devDependencies
 
-`npm install -g sequelize-cli`
+`npm install sequelize-cli --save-dev`
 
 ### instalar o dotenv
 
@@ -49,6 +49,9 @@ Clone o repositório em sua máquina em uma pasta local
 ### instalar o JsonWebToken ( JWT )
 
 `npm install jsonwebtoken`
+
+### instalar o Nodemon nas devDependencies
+`npm install nodemon --save-dev`
 
 ### Preencher o .env com seus dados
 ```
@@ -72,7 +75,7 @@ projeto, como executá-lo localmente, e outras informações relevantes.
 Informar como rodar o sistema - como uma pessoa que nunca rodou um node.
 como executar - baixa .env, npm intstall…..
 resumo que esta o projeto - separou uma pasta para controllers, explicar como foi separado os plano de negocio,
-consumir api externa - mapa do google - ferramenta gratuita + logica programação
+consumir api externa - mapa do google - ferramenta gratuita + logica programação - openStreetMap
 Colocar sobre a production e develop
 Instalação do Node.js e configuração do ambiente de desenvolvimento.
 Configuração do banco de dados relacional com o Sequelize - Documentar o modelo de banco de dados e as migrações utilizadas.
