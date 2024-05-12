@@ -1,4 +1,6 @@
 const Usuario = require("../models/Usuario");
+const Destino = require("../models/Destino");
+
 
 class UsuarioController {
   async cadastrar(req, res) {
@@ -94,6 +96,10 @@ class UsuarioController {
       const usuario = await Usuario.findByPk(id);
       if (!usuario) {
         return res.status(404).json({ mensagem: "Usuário não encontrado." });
+      }
+      const locaisAssociados = await Destino.findOne({ where: { usuario_id: id } });
+      if (locaisAssociados) {
+        return res.status(400).json({ mensagem: "Não é possível excluir o usuário porque existem locais associados a ele." });
       }
     
       await Usuario.destroy({
