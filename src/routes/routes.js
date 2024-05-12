@@ -7,6 +7,6 @@ const routes = Router();
 
 routes.use("/login", loginRoutes);
 routes.use("/usuarios", usuarioRoutes);
-routes.use("/destinos", destinoRoutes);
+routes.use("/local", destinoRoutes);
 
-module.exports = routes
+module.exports = routes;

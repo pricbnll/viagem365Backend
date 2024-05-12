@@ -5,20 +5,13 @@ const UsuarioController = require("../controllers/UsuarioController");
 
 const usuarioRoutes = new Router();
 
-usuarioRoutes.post("/", UsuarioController.cadastrar)
+usuarioRoutes.post("/", UsuarioController.cadastrar);
+
+
+
 usuarioRoutes.get("/", auth, UsuarioController.listarTodos);
 usuarioRoutes.put("/:id", auth, UsuarioController.atualizar);
 usuarioRoutes.delete("/:id", auth, UsuarioController.deletarUm);
 usuarioRoutes.delete("/", auth, UsuarioController.deletarTodos);
-
-
-
-// usuarioRoutes.get("/:id", auth, UsuarioController.listarUm);
-
-// usuarioRoutes.put("/:id", auth, UsuarioController.atualizar);
-
-// usuarioRoutes.delete("/:id", auth, UsuarioController.deletarUm);
-
-
 
 module.exports = usuarioRoutes;
