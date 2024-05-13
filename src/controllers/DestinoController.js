@@ -3,37 +3,35 @@ const Usuario = require("../models/Usuario");
 
 class DestinoController {
   async cadastrar(req, res) {
-    /*
-           #swagger.tags = ['Destino'],
-           #swagger.parameters['body'] = {
-               in: 'body',
-               description: 'Adiciona um novo destino',
-               schema: {
-                   {
-                   $destino : "Mercado Público de Florianópolis",
-                   $descricao : "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
-                   $localidade : "Centro de Florianópolis/SC - Brasil",
-                   $cep : 88010030,
-                   $coordenadas_geograficas : "-27.59587,-48.55225"  
-                   }
-               }}
-    */       
+         /*
+            #swagger.tags = ['Destino'],
+            #swagger.parameters['body'] = {
+                in: 'body',
+                description: 'Cadastrar um novo destino',
+                schema: {
+                  $usuario_id: 105,
+                  $destino : "Mercado Público de Florianópolis",
+                  $descricao : "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
+                  $localidade : "Centro de Florianópolis/SC - Brasil",
+                  $cep : 88010030,
+                  latitude : "-27.59587",
+                  longitude: "-48.523631"    
+                }
+            }
+        }
+    */
+     
+   
 
     try {
       const usuario_id = req.payload.sub;
-      const destino = req.body.destino;
-      const descricao = req.body.descricao;
-      const localidade = req.body.localidade;
-      const cep = req.body.cep;
-      const coordenadas_geograficas = req.body.coordenadas_geograficas;
+      const { destino , descricao, localidade, cep } = req.body
 
       if (
-        !usuario_id ||
         !destino ||
         !descricao ||
         !localidade ||
-        !cep ||
-        !coordenadas_geograficas
+        !cep
       ) {
         return res
           .status(400)
@@ -52,7 +50,6 @@ class DestinoController {
         descricao,
         localidade,
         cep,
-        coordenadas_geograficas,
       });
 
       console.log(novoDestino);
@@ -63,6 +60,8 @@ class DestinoController {
       res.status(500).json({ mensagem: "Não possível cadastrar o destino." });
     }
   }
+
+
 
   async listarDestinosPorUsuario(req, res) {
     /*
