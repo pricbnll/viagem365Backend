@@ -95,6 +95,12 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 
 1. `npm run start:dev`
 
+## SEEDERS
+
+Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
+
+`sequelize db:seed:all`
+
 ----------------------
 Você deverá criar a documentação no formato README , explicando a estrutura do
 projeto, como executá-lo localmente, e outras informações relevantes.
