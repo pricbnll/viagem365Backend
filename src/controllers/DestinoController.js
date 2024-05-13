@@ -3,8 +3,24 @@ const Usuario = require("../models/Usuario");
 
 class DestinoController {
   async cadastrar(req, res) {
+    /*
+           #swagger.tags = ['Destino'],
+           #swagger.parameters['body'] = {
+               in: 'body',
+               description: 'Adiciona um novo destino',
+               schema: {
+                   {
+                   $destino : "Mercado Público de Florianópolis",
+                   $descricao : "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
+                   $localidade : "Centro de Florianópolis/SC - Brasil",
+                   $cep : 88010030,
+                   $coordenadas_geograficas : "-27.59587,-48.55225"  
+                   }
+               }}
+    */       
+
     try {
-      const usuario_id = req.body.usuario_id; //{id = req.payload.sub}
+      const usuario_id = req.payload.sub;
       const destino = req.body.destino;
       const descricao = req.body.descricao;
       const localidade = req.body.localidade;
@@ -31,12 +47,12 @@ class DestinoController {
       }
 
       const novoDestino = await Destino.create({
-        usuario_id: usuario_id,
-        destino: destino,
-        descricao: descricao,
-        localidade: localidade,
-        cep: cep,
-        coordenadas_geograficas: coordenadas_geograficas,
+        usuario_id,
+        destino,
+        descricao,
+        localidade,
+        cep,
+        coordenadas_geograficas,
       });
 
       console.log(novoDestino);
@@ -48,25 +64,13 @@ class DestinoController {
     }
   }
 
-
-  //----ver com id payload 
-  // destinationRoute.get("/:destino_id", auth, async (req, res) => {
-  //   try {
-  //     const user_id = req.payload.sub;
-  //     const destino_id = req.params.destino_id;
-  
-  //     const destino = await Destino.findOne({
-  //       where: {
-  //         id: destino_id,
-  //         user_id: user_id,
-  //       },
-  //     });
-
-
-
-
   async listarDestinosPorUsuario(req, res) {
-    const { id } = req.params;
+    /*
+            #swagger.tags = ['Destino'],
+            #swagger.description ='Listar um destino por usuário'
+    */ 
+
+    const id = req.payload.sub;
 
     try {
       const usuario = await Usuario.findByPk(id);
@@ -85,27 +89,12 @@ class DestinoController {
     }
   }
 
-  async listarUm(req, res) {
-    try {
-      const { id } = req.params;
-
-      const destino = await Destino.findByPk(id);
-
-      if (!destino) {
-        return res.status(404).json({ message: "Destino não encontrado!" });
-      }
-
-      res.json(destino);
-    } catch (error) {
-      console.log(error.message);
-      res.status(500).json({
-        error: "Não possível listar o destino especifico",
-        error: error,
-      });
-    }
-  }
-
   async listarTodos(req, res) {
+    /*
+            #swagger.tags = ['Destino'],
+            #swagger.description ='Listar todos os destinos'
+    */ 
+
     try {
       const destino = await Destino.findAll();
       res.status(201).json(destino);
@@ -117,10 +106,33 @@ class DestinoController {
   }
 
   async atualizar(req, res) {
+    /*
+          #swagger.tags = ['Destino'],
+          #swagger.parameters['body'] = {
+              in: 'body',
+              description: 'Adiciona um novo destino',
+              schema: {
+                  {
+                  $destino : "Mercado Público de Florianópolis",
+                  $descricao : "O local é um centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
+                  $localidade : "Centro de Florianópolis/SC - Brasil",
+                  $cep : 88010030,
+                  $coordenadas_geograficas : "-27.59587,-48.55225"  
+                  }
+              }}
+   */       
+
     try {
       const { id } = req.params;
 
       const destino = await Destino.findByPk(id);
+
+      const usuarioLogadoId = req.payload.sub;
+      if (!(usuarioLogadoId == destino.usuario_id)) {
+        return res
+          .status(401)
+          .json({ mensagem: "Não autorizado a atualizar este destino." });
+      }
 
       if (!destino) {
         return res.status(404).json({ mensagem: "Destino não encontrado." });
@@ -140,11 +152,24 @@ class DestinoController {
   }
 
   async deletarUm(req, res) {
+    /*
+            #swagger.tags = ['Destino'],
+            #swagger.description ='Deletar um destino por id'
+    */ 
+
     const { id } = req.params;
     try {
       const destino = await Destino.findByPk(id);
+
+      const usuarioLogadoId = req.payload.sub;
+      if (!(usuarioLogadoId == destino.usuario_id)) {
+        return res
+          .status(401)
+          .json({ mensagem: "Não autorizado a deletar este destino." });
+      }
+
       if (!destino) {
-        return res.status(404).json({ mensagem: "destino não encontrado." });
+        return res.status(404).json({ mensagem: "Destino não encontrado." });
       }
 
       await Destino.destroy({
@@ -161,6 +186,11 @@ class DestinoController {
   }
 
   async deletarTodos(req, res) {
+    /*
+            #swagger.tags = ['Destino'],
+            #swagger.description ='Deletar todos os destinos'
+    */ 
+
     try {
       await Destino.destroy({
         where: {},
@@ -176,16 +206,3 @@ class DestinoController {
 }
 
 module.exports = new DestinoController();
-
-// //adiciona mascara de cep
-// function MascaraCep(cep){
-//     if(mascaraInteiro(cep)==false){
-//     event.returnValue = false;
-// }
-// return formataCampo(cep, '00.000-000', event);
-// }
-
-// Funcionalidade Destino:
-// Cada usuário pode cadastrar um ou mais locais de natureza, fornecendo informações detalhadas sobre cada destino.
-// Informações como nome do destino, descrição, localidade, coordenadas geográficas, e outras devem ser capturadas.
-// Regras específicas devem ser implementadas, como não permitir a deleção de um usuário que tenha locais associados.

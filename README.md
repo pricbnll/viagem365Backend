@@ -51,7 +51,33 @@ Clone o repositório em sua máquina em uma pasta local
 `npm install jsonwebtoken`
 
 ### instalar o Nodemon nas devDependencies
+
 `npm install nodemon --save-dev`
+
+### instalar o Swagger UI
+
+`npm install swagger-ui-express`
+
+### instalar o Swagger AutoGen para gerar o documento Swagger de forma automática.
+
+`npm install swagger-autogen`
+
+
+
+
+## 🤖 Como rodar o Swagger:
+
+Pelo terminal passa o comando: `node ./swagger.js` 
+
+Obs. No arquivo package.json já tem um exemplo para cada rota
+
+Pelo browser:
+[link] (http://localhost:3365/docs)
+
+
+## PARA ACESSAR A DOCUMETAÇAO  ACESSE O LINK:
+[SEQUELIZE](https://sequelize.org/docs/v6/core-concepts/model-basics/)
+[SWAGGER Autogen](https://swagger-autogen.github.io/docs/endpoints/endpoint-as-deprecated/)
 
 ### Preencher o .env com seus dados
 ```

@@ -4,6 +4,7 @@ const Destino = require("../models/Destino");
 
 class UsuarioController {
   async cadastrar(req, res) {
+
     try {
       const nome = req.body.nome;
       const sexo = req.body.sexo;
@@ -26,28 +27,29 @@ class UsuarioController {
       if (!cpfValido) {
         return res.status(400).json({ error: "CPF inválido." });
       }
+      console.log(cpfValido)
 
       if (!endereco) {
-        return res.status(400).json({ mensagem: "O endereco é obrigatório" });
+        return res.status(400).json({ mensagem: "O endereço é obrigatório." });
       }
       if (!email) {
-        return res.status(400).json({ mensagem: "O email é obrigatório" });
+        return res.status(400).json({ mensagem: "O email é obrigatório." });
       }
       if (!senha) {
-        return res.status(400).json({ mensagem: "O senha é obrigatório" });
+        return res.status(400).json({ mensagem: "O senha é obrigatório." });
       } 
      
       const usuario = await Usuario.create({
-        nome: nome,
-        sexo: sexo,
-        data_nascimento: data_nascimento,
-        endereco: endereco,
-        cpf: cpf,
-        email: email,
-        senha: senha,
+        nome,
+        sexo,
+        data_nascimento,
+        endereco,
+        cpf,
+        email,
+        senha,
       });
 
-      console.log(usuario)
+      // console.log(usuario)
 
       res.status(201).json(usuario);
     } catch (error) {
@@ -99,7 +101,7 @@ class UsuarioController {
       }
       const locaisAssociados = await Destino.findOne({ where: { usuario_id: id } });
       if (locaisAssociados) {
-        return res.status(400).json({ mensagem: "Não é possível excluir o usuário porque existem locais associados a ele." });
+        return res.status(403).json({ mensagem: "Não é possível excluir o usuário porque existem locais associados a ele." });
       }
     
       await Usuario.destroy({

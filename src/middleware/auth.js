@@ -6,7 +6,7 @@ async function auth(req, res, next) {
 
         const { authorization } = req.headers 
 
-        req['payload'] = verify(authorization, process.env.SECRET_JWT)  // verifico meu payload junto com a chave secreta e guardo dentro da requisição - novo item na req que chama-se payload
+        req['payload'] = verify(authorization, process.env.SECRET_JWT)  
 
         next()
 
