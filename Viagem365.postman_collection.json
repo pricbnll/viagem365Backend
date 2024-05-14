@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "dd7ffa72-4a47-4b28-a317-f180ef56d6f8",
+		"name": "Viagem365",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33911854"
+	},
+	"item": [
+		{
+			"name": "Cadastro um novo usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJlbWFpbCI6InByaUBnbWFpbC5jb20iLCJub21lIjoiUHJpIiwiaWF0IjoxNzE1MDQ3OTM2fQ.cFGIVutJpRpHwXKCJ8EwPNUzyVn2rEtj9c6LZGrVYjo",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Pricila\",\n    \"sexo\": \"feminino\",\n    \"data_nascimento\": \"1999-09-12\",\n    \"endereco\": \"Rua Flor Brancas,3333 - Florianópolis/SC\",\n    \"cpf\": \"510.664.250-78\",\n    \"email\": \"pri@gmail.com\",\n    \"senha\": \"1111\"    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJlbWFpbCI6InByaUBnbWFpbC5jb20iLCJub21lIjoiUHJpIiwiaWF0IjoxNzE1MDQ3OTM2fQ.cFGIVutJpRpHwXKCJ8EwPNUzyVn2rEtj9c6LZGrVYjo",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"email\": \"caca@gmaiil.com\",\n        \"senha\": \"3333\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar um usuário pelo id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Pri\",\n    \"sexo\": \"feminino\",\n    \"data_nascimento\": \"1999-09-12\",\n    \"endereco\": \"Rua Flor Brancas,3333 - Florianópolis/SC\",\n    \"cpf\": \"44444444444\",\n    \"email\": \"pri@gmail.com\",\n    \"senha\": \"1111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/usuarios/49"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar um usuário pelo id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQ1LCJlbWFpbCI6InByaUBnbWFpaWwuY29tIiwibm9tZSI6IlByaSAiLCJzZW5oYSI6IjExMTEiLCJpYXQiOjE3MTU0NTUxNzJ9.CaY_2mYhvK7aMXRPYY5rf1iXykjtFtQNIUO3q6HRvLM"
+					}
+				],
+				"url": "http://localhost:3300/usuarios/47"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar todos os usuários",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3365/usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro um novo destino",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjg2LCJlbWFpbCI6InByaXNjQGdtYWlsLmNvbSIsIm5vbWUiOiJQcmljaWxhIiwic2VuaGEiOiIxMTExIiwiaWF0IjoxNzE1NTU2ODg0fQ.rsH8JD8_1z2VoIqFnqh_pY5ZKLIwZrDnX3SUBI-wI5A"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjg3LCJlbWFpbCI6InByaUBnbWFpbC5jb20iLCJub21lIjoiUHJpY2lsYSIsInNlbmhhIjoiMTExMSIsImlhdCI6MTcxNTU1NzEzNX0.vRmKLGEkTPlP_BllbYW0Bze6etoUm6njYevZsJWmmFs"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"destino\" : \"Dunas da Joaquina na Lagoa da Conceição\",\n    \"descricao\" : \"As Dunas da Joaquina são uma impressionante formação natural localizada entre a Lagoa da Conceição e o mar. São famosas para a prática do “sandboard”, esporte em que as pessoas descem as dunas em pranchas.\",\n    \"localidade\" : \"Lagoa da Conceição de Florianópolis/SC - Brasil\",\n    \"cep\" : 88048424,\n    \"coordenadas_geograficas\" : \"27.4705,48.3886\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/local"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os destinos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os destinos por id de destino",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/usuarios"
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os destinos por usuário",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/local/50"
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar um destino pelo id do destino",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario_id\" : 50,\n    \"destino\" : \"Dunas da Joaquina na Lagoa da Conceição\",\n    \"descricao\" : \"As Dunas da Joaquina são uma impressionante formação natural localizada entre a Lagoa da Conceição e o mar. São famosas para a prática do “sandboard”, esporte em que as pessoas descem as dunas em pranchas.\",\n    \"localidade\" : \"Lagoa da Conceição em Florianópolis/SC - Brasil\",\n    \"cep\" : \"88048424\",\n    \"coordenadas_geograficas\" : \"27,4705, 48,3886\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3365/local/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar um destino pelo id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3300/usuarios/47"
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar todos os destinos",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3365/local"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Viagem265 pri",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjE4LCJlbWFpbCI6InByaUBnbWFpbC5jb20iLCJub21lIjoiUHJpIiwiaWF0IjoxNzE1MDQ3OTM2fQ.cFGIVutJpRpHwXKCJ8EwPNUzyVn2rEtj9c6LZGrVYjo"
+		}
+	]
+}

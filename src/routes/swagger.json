@@ -29,7 +29,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Login de um novo Usuário",
+            "description": "Login de um novo usuário",
             "schema": {
               "type": "object",
               "properties": {
@@ -303,40 +303,52 @@
           {
             "name": "body",
             "in": "body",
+            "description": "Cadastrar um novo destino",
             "schema": {
               "type": "object",
               "properties": {
+                "usuario_id": {
+                  "type": "number",
+                  "example": 105
+                },
                 "destino": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Mercado Público de Florianópolis"
                 },
                 "descricao": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde produtos artesanais, alimentos frescos, até souvenires típicos da região."
                 },
                 "localidade": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "Centro de Florianópolis/SC - Brasil"
                 },
                 "cep": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 88010030
                 },
-                "coordenadas_geograficas": {
-                  "example": "any"
+                "latitude": {
+                  "type": "string",
+                  "example": "-27.59587"
+                },
+                "longitude": {
+                  "type": "string",
+                  "example": "-48.523631"
                 }
-              }
+              },
+              "required": [
+                "usuario_id",
+                "destino",
+                "descricao",
+                "localidade",
+                "cep"
+              ]
             }
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },

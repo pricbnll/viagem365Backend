@@ -28,40 +28,24 @@ Clone o repositório em sua máquina em uma pasta local
 2. Se for em ambiente local: `npm install --dev`
 3. `cp .env_example .env`
 
-## Instale as bibliotecas utilizadas:
+## Novas Bibliotecas utilizadas:
 
 ### instalar o sequelize
-
-`npm install sequelize`
-
+`npm install sequelize` 
 ### instalar o driver do PostgreSQL
-
-`npm install pg`
-
-### instalar o CLI do sequelize nas devDependencies
-
-`npm install sequelize-cli --save-dev`
-
+`npm install pg` 
+### instalar o CLI do sequelize
+`npm install -g sequelize-cli` 
 ### instalar o dotenv
-
 `npm install dotenv`
-
 ### instalar o JsonWebToken ( JWT )
-
 `npm install jsonwebtoken`
-
-### instalar o Nodemon nas devDependencies
-
-`npm install nodemon --save-dev`
-
+### instalar o axios
+`npm install axios`
 ### instalar o Swagger UI
-
 `npm install swagger-ui-express`
-
 ### instalar o Swagger AutoGen para gerar o documento Swagger de forma automática.
-
 `npm install swagger-autogen`
-
 
 
 
@@ -99,7 +83,11 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 
 Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
 
-`sequelize db:seed:all`
+1. `sequelize db:seed --seed usuario.seeders.js`
+ 
+ Após gerar os id de usuários abasteça a destino.seeders.js com o id de cada um dos destinos respectivos e rode no terminal:
+
+2. `sequelize db:seed --seed destino.seeders.js`
 
 ----------------------
 Você deverá criar a documentação no formato README , explicando a estrutura do

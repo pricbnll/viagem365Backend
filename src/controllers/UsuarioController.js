@@ -6,14 +6,8 @@ class UsuarioController {
   async cadastrar(req, res) {
 
     try {
-      const nome = req.body.nome;
-      const sexo = req.body.sexo;
-      const data_nascimento = req.body.data_nascimento;
-      const endereco = req.body.endereco;
-      const cpf = req.body.cpf;
-      const email = req.body.email;
-      const senha = req.body.senha;
-
+      const { nome, sexo, data_nascimento, endereco, cpf, email, senha } = req.body;
+      
       if (!nome) {
         return res.status(400).json({ mensagem: "O nome é obrigatório" });
       }

@@ -17,9 +17,12 @@ const Destino = connection.define("destinos", {
       cep: {
           type: DataTypes.INTEGER
       },
-      coordenadas_geograficas: {
-          type: DataTypes.FLOAT
+      latitude: {
+          type: DataTypes.STRING
       },
+      longitude: {
+        type: DataTypes.STRING
+    },
 });
 
 module.exports = Destino;
