@@ -1,38 +1,28 @@
+const axios = require("axios");
 const Destino = require("../models/Destino");
 const Usuario = require("../models/Usuario");
 
 class DestinoController {
   async cadastrar(req, res) {
-         /*
+    /*
             #swagger.tags = ['Destino'],
             #swagger.parameters['body'] = {
                 in: 'body',
                 description: 'Cadastrar um novo destino',
                 schema: {
-                  $usuario_id: 105,
                   $destino : "Mercado Público de Florianópolis",
                   $descricao : "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
                   $localidade : "Centro de Florianópolis/SC - Brasil",
-                  $cep : 88010030,
-                  latitude : "-27.59587",
-                  longitude: "-48.523631"    
+                  $cep : 88010030,   
                 }
             }
         }
     */
-     
-   
-
     try {
       const usuario_id = req.payload.sub;
-      const { destino , descricao, localidade, cep } = req.body
+      const { destino, descricao, localidade, cep } = req.body;
 
-      if (
-        !destino ||
-        !descricao ||
-        !localidade ||
-        !cep
-      ) {
+      if (!destino || !descricao || !localidade || !cep) {
         return res
           .status(400)
           .json({ mensagem: "Todos os campos são obrigatórios." });
@@ -44,30 +34,53 @@ class DestinoController {
           .json({ mensagem: "CEP deve ter exatamente 8 dígitos." });
       }
 
+      const pesquisaCEP = await axios.get(
+        `https://cep.awesomeapi.com.br/${cep}`
+      );
+
+      if (pesquisaCEP.data.length === 0) {
+        return res.status(404).json("CEP inválido");
+      }
+
+      const { lat, lng } = pesquisaCEP.data;
+
+      const destinoExistente = await Destino.findOne({
+        where: {
+          usuario_id,
+          destino,
+        },
+      });
+
+      if (destinoExistente) {
+        return res
+          .status(400)
+          .json({ mensagem: "Este destino já foi cadastrado." });
+      }
+
       const novoDestino = await Destino.create({
         usuario_id,
         destino,
         descricao,
         localidade,
         cep,
+        latitude: lat,
+        longitude: lng,
       });
-
-      console.log(novoDestino);
 
       res.status(201).json(novoDestino);
     } catch (error) {
       console.log(error.message);
-      res.status(500).json({ mensagem: "Não possível cadastrar o destino." });
+      res
+        .status(500)
+        .json({ mensagem: "Não foi possível cadastrar o destino." });
     }
   }
-
-
 
   async listarDestinosPorUsuario(req, res) {
     /*
             #swagger.tags = ['Destino'],
             #swagger.description ='Listar um destino por usuário'
-    */ 
+    */
 
     const id = req.payload.sub;
 
@@ -92,7 +105,7 @@ class DestinoController {
     /*
             #swagger.tags = ['Destino'],
             #swagger.description ='Listar todos os destinos'
-    */ 
+    */
 
     try {
       const destino = await Destino.findAll();
@@ -119,7 +132,7 @@ class DestinoController {
                   $coordenadas_geograficas : "-27.59587,-48.55225"  
                   }
               }}
-   */       
+   */
 
     try {
       const { id } = req.params;
@@ -138,7 +151,6 @@ class DestinoController {
       }
       destino.update(req.body);
 
-      console.log();
       await destino.save();
 
       res.status(200).json(destino);
@@ -154,7 +166,7 @@ class DestinoController {
     /*
             #swagger.tags = ['Destino'],
             #swagger.description ='Deletar um destino por id'
-    */ 
+    */
 
     const { id } = req.params;
     try {
@@ -188,7 +200,7 @@ class DestinoController {
     /*
             #swagger.tags = ['Destino'],
             #swagger.description ='Deletar todos os destinos'
-    */ 
+    */
 
     try {
       await Destino.destroy({
