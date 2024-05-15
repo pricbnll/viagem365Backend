@@ -10,7 +10,7 @@
 Este reposiório se baseia em um projeto avaliativo do curso FuturoDev o qual faço parte da turma TRIP com enterga no dia 17/05/2024 encerrando o primeiro módulo.
 Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser criadas na aplicação com todas as regras de entrega do projeto avaliativo.
 
-**Objetivo: Montagem e execução de uma aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL - Software MVP**
+**Objetivo: Montagem e execução de Software MVP numa aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL**
 
 A API Viagem365 deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações do usuário(s) e seus destino(s).
 
@@ -21,6 +21,7 @@ A API Viagem365 deseja automatizar algumas ações de atendimento, criando um si
 
 <p>
   <img src = "./assets/projetoModulo1-FloripaMaisTech.jpg">
+</p>
 
 
 ## 🤖 Como rodar o repositório:
