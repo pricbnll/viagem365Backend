@@ -307,10 +307,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "usuario_id": {
-                  "type": "number",
-                  "example": 105
-                },
                 "destino": {
                   "type": "string",
                   "example": "Mercado Público de Florianópolis"
@@ -326,18 +322,9 @@
                 "cep": {
                   "type": "number",
                   "example": 88010030
-                },
-                "latitude": {
-                  "type": "string",
-                  "example": "-27.59587"
-                },
-                "longitude": {
-                  "type": "string",
-                  "example": "-48.523631"
                 }
               },
               "required": [
-                "usuario_id",
                 "destino",
                 "descricao",
                 "localidade",
