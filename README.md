@@ -1,4 +1,6 @@
-# Não faça sua viagem sem antes utilizar a plataforma Viagem365
+
+# 🚀 Não faça sua viagem sem antes utilizar a plataforma Viagem365
+
  
   O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagems que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras. 
   
@@ -14,11 +16,11 @@ A API Viagem365 deseja automatizar algumas ações de atendimento, criando um si
 
   *Bora usar as boas praticas de desenvolvimento de software!*
 
-## 🤖 Diagrama relacional
+
+## 📉 Diagrama relacional
 
 <p>
-  <img src = "">
-</p>
+  <img src = "./assets/projetoModulo1-FloripaMaisTech.jpg">
 
 
 ## 🤖 Como rodar o repositório:
@@ -31,7 +33,7 @@ Clone o repositório em sua máquina em uma pasta local
 
 `npm run start:dev`
 
-## SEEDERS
+## 🌱 SEEDERS
 
 Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
 
@@ -86,14 +88,15 @@ Pelo browser:
 [link] (http://localhost:3365/docs)
 
 
-## PARA ACESSAR A DOCUMETAÇAO ACESSE O LINK:
+
+## 📂 PARA ACESSAR A DOCUMENTAÇÃO ACESSE O LINK:
 
 Caso tenha alguma dúvida!!
 
 [SEQUELIZE](https://sequelize.org/docs/v6/core-concepts/model-basics/)
 [SWAGGER Autogen](https://swagger-autogen.github.io/docs/)
 
-### Preencher o .env com seus dados
+### 📝 Preencher o .env com seus dados
 ```
 DIALECT=postgres 
 HOST=localhost
@@ -104,7 +107,8 @@ PORT=5432
 PORT_API=3365 #Qual a porta do seu servidor escolhido? Exemplo
 SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 ```
-## 🛠️ Validações importantes
+
+## 🔪 Validações importantes
 
 - Token JWT - criado na rota login (email e senha do usuário) utilizado para autenticação das rotas privadas. Obs: Token sem tempo de expiração.
 - Tabela usuário:
@@ -134,13 +138,13 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 
   
 
-## 🧑🏻‍🏫 Professores par auxilio
+## 🧑🏻‍🏫 Professores para auxilio
 
 * **Rawan.H** - [GitHub](https://github.com/Hawangledt)
 * **Douglas Cavalcante** - [GitHub](https://github.com/douglas-cavalcante)
 
 
-## Melhorias
+## 👀 Melhorias
 
 - Outros usuários fazer comentário nos destinos de outros usuários.
 - Aprender a utlizar o npm e seus validators (npm i cpf-cnpj-validator -S)
@@ -155,6 +159,6 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 * Qualquer dúvida ou sugestão de melhorar o código eu aceito - algumas escrevi acima!!!
 
 
-## Video de apresentação do MiniProjeto 1
+## 	📹 Video de apresentação do MiniProjeto 1
 
 [Video] - ()

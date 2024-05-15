@@ -8,7 +8,7 @@ class LoginController {
             #swagger.tags = ['Login'],
             #swagger.parameters['body'] = {
                 in: 'body',
-                description: 'Login de um novo Usuário',
+                description: 'Login de um novo usuário',
                 schema: {
                     $email: "pri@gmail.com",
                     $senha: "1111"    
@@ -17,8 +17,7 @@ class LoginController {
         }
     */
     try {
-      const email = req.body.email;
-      const senha = req.body.senha;
+      const {email, senha}  = req.body;
 
       //----------Regras de validação devem ser implementadas, como evitar o cadastro de pessoas com o mesmo email.   UNIQUE
       

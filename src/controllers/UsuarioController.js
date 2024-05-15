@@ -6,14 +6,8 @@ class UsuarioController {
   async cadastrar(req, res) {
 
     try {
-      const nome = req.body.nome;
-      const sexo = req.body.sexo;
-      const data_nascimento = req.body.data_nascimento;
-      const endereco = req.body.endereco;
-      const cpf = req.body.cpf;
-      const email = req.body.email;
-      const senha = req.body.senha;
-
+      const { nome, sexo, data_nascimento, endereco, cpf, email, senha } = req.body;
+      
       if (!nome) {
         return res.status(400).json({ mensagem: "O nome é obrigatório" });
       }
@@ -132,38 +126,26 @@ class UsuarioController {
   }
 }
 
-  function validarCPF(cpf) {
-    // Remover caracteres não numéricos do CPF
-    cpf = cpf.replace(/\D/g, '');
+function validarCPF(strCPF) { 
+  var Soma;
+  var Resto;
+  Soma = 0;
+if (strCPF == "00000000000") return false;
 
-    if (cpf.length !== 11) {
-        return false;
-    }
-    // Verificar se todos os dígitos são iguais, o que tornaria o CPF inválido
-    if (/^(\d)\1{10}$/.test(cpf)) {
-        return false;
-    }
-    // Calcular os dígitos verificadores
-    let soma = 0;
-    for (let i = 0; i < 9; i++) {
-        soma += parseInt(cpf.charAt(i)) * (10 - i);
-    }
-    let resto = soma % 11;
-    let digitoVerificador1 = resto < 2 ? 0 : 11 - resto;
+for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+Resto = (Soma * 10) % 11;
 
-    soma = 0;
-    for (let i = 0; i < 10; i++) {
-        soma += parseInt(cpf.charAt(i)) * (11 - i);
-    }
-    resto = soma % 11;
-    let digitoVerificador2 = resto < 2 ? 0 : 11 - resto;
-    // Verificar se os dígitos verificadores calculados são iguais aos dígitos verificadores do CPF
-    if (parseInt(cpf.charAt(9)) !== digitoVerificador1 || parseInt(cpf.charAt(10)) !== digitoVerificador2) {
-        return false;
-    }
+  if ((Resto == 10) || (Resto == 11))  Resto = 0;
+  if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
 
-    return true;
-  }
+Soma = 0;
+  for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+  Resto = (Soma * 10) % 11;
+
+  if ((Resto == 10) || (Resto == 11))  Resto = 0;
+  if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+  return true;
+}
 
 
   //POTENCIAL!!!! que traz o req.payload : usuarioRoutes.get("/usuarios/alterar_senha", auth,  async (req, res) => {id = req.payload.sub
