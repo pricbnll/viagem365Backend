@@ -1,19 +1,24 @@
 # Não faça sua viagem sem antes utilizar a plataforma Viagem365
-
-
-  O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas. Os usuários podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável e compartilhar suas experiências. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e seleção de destinos, visualização de informações dos destinos, entre outras. 
+ 
+  O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagems que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras. 
   
   
 ## 🏦 Módulo 1 - Projeto Avaliativo
 
+Este reposiório se baseia em um projeto avaliativo do curso FuturoDev o qual faço parte da turma TRIP com enterga no dia 17/05/2024 encerrando o primeiro módulo.
+Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser criadas na aplicação com todas as regras de entrega do projeto avaliativo.
+
 **Objetivo: Montagem e execução de uma aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL - Software MVP**
 
-A Viagem365, deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações referente aos locais, usuários do aplicativo e comentários.
+A API Viagem365 deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações do usuário(s) e seus destino(s).
 
   *Bora usar as boas praticas de desenvolvimento de software!*
 
+## 🤖 Diagrama relacional
 
-Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser criadas na aplicação com todas as regras de entrega do projeto avaliativo.
+<p>
+  <img src = "">
+</p>
 
 
 ## 🤖 Como rodar o repositório:
@@ -21,6 +26,16 @@ Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser cria
 Clone o repositório em sua máquina em uma pasta local 
 
 `Git clone https://github.com/pricbnll/viagem365.git`
+
+### Sempre que precisas rodar o repositório em ambiente local
+
+`npm run start:dev`
+
+## SEEDERS
+
+Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
+
+`sequelize db:seed:all`
 
 ### ≈Na primeira vez é necessário instalar as dependências:
 
@@ -63,21 +78,20 @@ Clone o repositório em sua máquina em uma pasta local
 `npm install swagger-autogen`
 
 
-
-
 ## 🤖 Como rodar o Swagger:
 
-Pelo terminal passa o comando: `node ./swagger.js` 
-
-Obs. No arquivo package.json já tem um exemplo para cada rota
+Pelo terminal passa o comando: `[node ./swagger.js]` 
 
 Pelo browser:
 [link] (http://localhost:3365/docs)
 
 
-## PARA ACESSAR A DOCUMETAÇAO  ACESSE O LINK:
+## PARA ACESSAR A DOCUMETAÇAO ACESSE O LINK:
+
+Caso tenha alguma dúvida!!
+
 [SEQUELIZE](https://sequelize.org/docs/v6/core-concepts/model-basics/)
-[SWAGGER Autogen](https://swagger-autogen.github.io/docs/endpoints/endpoint-as-deprecated/)
+[SWAGGER Autogen](https://swagger-autogen.github.io/docs/)
 
 ### Preencher o .env com seus dados
 ```
@@ -90,42 +104,34 @@ PORT=5432
 PORT_API=3365 #Qual a porta do seu servidor escolhido? Exemplo
 SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 ```
+## 🛠️ Validações importantes
 
-### Sempre que precisas rodar o repositório em ambiente local
+- Token JWT - criado na rota login (email e senha do usuário) utilizado para autenticação das rotas privadas. Obs: Token sem tempo de expiração.
+- Tabela usuário:
+  Impor o preenchimento do nome, sexo, data_nascimento, endereco, cpf, email, senha
+  CPF e email ão único - não podem repetir nas colunas respectivas
+  A data de nascimento no formato correto-ANO-MÊS=DIA
+  Um CPF válido com 11 digitos, não todos iguais e funçõ retirada da Recita Federal (validarCPF)
 
-1. `npm run start:dev`
-
-## SEEDERS
-
-Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
-
-`sequelize db:seed:all`
-
-----------------------
-Você deverá criar a documentação no formato README , explicando a estrutura do
-projeto, como executá-lo localmente, e outras informações relevantes.
-Informar como rodar o sistema - como uma pessoa que nunca rodou um node.
-como executar - baixa .env, npm intstall…..
-resumo que esta o projeto - separou uma pasta para controllers, explicar como foi separado os plano de negocio,
-consumir api externa - mapa do google - ferramenta gratuita + logica programação - openStreetMap
-Colocar sobre a production e develop
-Instalação do Node.js e configuração do ambiente de desenvolvimento.
-Configuração do banco de dados relacional com o Sequelize - Documentar o modelo de banco de dados e as migrações utilizadas.
------------------------
-
+- Tabela destinos:
+  Nas rotas o id é extraido do seu token (feito no login)
+  Cep é inserido e atraves dele extraido as coordenadas geograficas pela API externa (https://docs.awesomeapi.com.br/api-cep) e colocada no banco de dados daquele destino.
+  Somente o usuário daquele destino pode atualizar ou deletar seu(s) destino (s) cadastrado(s).
+  
 ## 🛠️ Construído com
 
-- Trello - aprendendo a criar e mover cards.
-- VsCode - aprendendo a usar a ferramenta e suas extensões.
-- GitHub - aprendendo a utilizar sempre enviando ou trazendo para meu local o repositório, fazendo alterações, GitFlow
-- Node.js - Instalação
-- Express - CRUD
-- Sequelize - aprendendo a usar migration, models, routes...
-- Postgres
-- Postman
-- JWT
-- Swagger
-- Seeds 
+- Trello - todos os passos que fiz para criar, roteiro da aplicação, regras de negócios e validações exigidas
+- VsCode - para formar o código em Node.js
+- GitHub - utilizabdo o GitFlow, criado a main, develop e algumas branches para desenvolver cada passo exigido (rotas, controllers, seeders, swagger, API externa para obter coordenadas geográficas a partir do CEP informado...)
+- Node.js 
+- Express - para execução do javascript como linguagem de back-end.
+- Sequelize - usado na formulação da migration, models, controllers, routes...
+- Postgres - utilizado como Banco de dados.
+- Postman - Utilizado para criar, compartilhar, testar e documentar APIs
+- JWT - utilizado para geração do token que utilizaremos nas autenticação das rotas privadas
+- Swagger - criar manualmente a documentação da API
+- Seeds - usadas para popular automaticamente o banco de dados com dados de teste ou dados iniciais
+
   
 
 ## 🧑🏻‍🏫 Professores par auxilio
@@ -136,14 +142,17 @@ Configuração do banco de dados relacional com o Sequelize - Documentar o model
 
 ## Melhorias
 
+- Outros usuários fazer comentário nos destinos de outros usuários.
+- Aprender a utlizar o npm e seus validators (npm i cpf-cnpj-validator -S)
+- Dar um tempo de expiração ao token, por exemplo de 24 horas ou até a troca do dia.
 
 
 ## 🎁 Expressões de gratidão
 
 * O Floripa Mais Tec é uma iniciativa da Prefeitura de Florianópolis, em parceria com SENAI/SC, SEBRAE e ACATE, que visa democratizar o acesso ao ensino tecnológico para todos, oferecendo cursos de Tecnologia gratuitos!  📢;
 * Lab365 e todos os monitores;
-* Qualquer dúvida ou sugestão de melhorar o código eu aceito - algumas escrevi acima;
-* Grata a todos os alunos da TRIP - voces são uns queriduxxxx 🫂;
+* Aos melhores colegas de classe de TRIP e NATURE que alguém poderia ter! 
+* Qualquer dúvida ou sugestão de melhorar o código eu aceito - algumas escrevi acima!!!
 
 
 ## Video de apresentação do MiniProjeto 1
