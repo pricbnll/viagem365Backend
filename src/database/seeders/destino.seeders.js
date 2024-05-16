@@ -6,7 +6,7 @@ module.exports = {
     up: async (QueryInterface, Sequelize) => {
         await Destino.bulkCreate([
             {
-                usuario_id: 102,
+                usuario_id: 1,
                 destino : "Mercado Público de Florianópolis",
                 descricao : "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
                 localidade : "Centro de Florianópolis/SC - Brasil",
@@ -16,7 +16,7 @@ module.exports = {
             },
             
             {
-                usuario_id: 102,
+                usuario_id: 1,
                 destino : "Dunas da Joaquina na Lagoa da Conceição",
                 descricao: "As Dunas da Joaquina são uma impressionante formação natural localizada entre a Lagoa da Conceição e o mar. São famosas para a prática do “sandboard”, esporte em que as pessoas descem as dunas em pranchas.",
                 localidade : "Lagoa da Conceição de Florianópolis/SC - Brasil",
@@ -26,7 +26,7 @@ module.exports = {
             },
             
             {
-                usuario_id:103,
+                usuario_id:2,
                 destino : "Ponte Hercílio Luz",
                 descricao : "Símbolo da engenharia brasileira. Inaugurada em 1926, foi a primeira ligação rodoviária entre a ilha e o continente. A ponte é iluminada, o que a torna uma paisagem incrível de ser observada à noite, durante passeios e momentos de descanso.",
                 localidade : "Centro de Florianópolis/SC - Brasil",
