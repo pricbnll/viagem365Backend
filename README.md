@@ -30,6 +30,12 @@ Clone o repositório em sua máquina em uma pasta local
 
 `Git clone https://github.com/pricbnll/viagem365.git`
 
+## 🌱 SEEDERS
+
+Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
+
+`sequelize db:seed:all`
+
 ## 🤖 Como rodar o Swagger:
 
 Pelo terminal passa o comando: `[node ./swagger.js]` 
@@ -42,11 +48,6 @@ Pelo browser:
 
 `npm run start:dev`
 
-## 🌱 SEEDERS
-
-Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
-
-`sequelize db:seed:all`
 
 ### ≈Na primeira vez é necessário instalar as dependências:
 
