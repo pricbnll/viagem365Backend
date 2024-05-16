@@ -1,9 +1,6 @@
-
 # 🚀 Não faça sua viagem sem antes utilizar a plataforma Viagem365
 
- 
   O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagens que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras. 
-  
   
 ## 🏦 Módulo 1 - Projeto Avaliativo
 
@@ -16,13 +13,11 @@ A API Viagem365 deseja automatizar algumas ações de atendimento, criando um si
 
   *Bora usar as boas praticas de desenvolvimento de software!*
 
-
 ## 📉 Diagrama relacional
 
 <p>
   <img src = "./assets/projetoModulo1-FloripaMaisTech.jpg">
 </p>
-
 
 ## 🤖 Como rodar o repositório:
 
@@ -116,6 +111,7 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 ## 🔪 Validações importantes
 
 - Token JWT - criado na rota login (email e senha do usuário) utilizado para autenticação das rotas privadas. Obs: Token sem tempo de expiração.
+  
 - Tabela usuário:
   Impor o preenchimento do nome, sexo, data_nascimento, endereco, cpf, email, senha
   CPF e email ão único - não podem repetir nas colunas respectivas
