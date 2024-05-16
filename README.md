@@ -49,7 +49,7 @@ Pelo browser:
 `npm run start:dev`
 
 
-### ≈Na primeira vez é necessário instalar as dependências:
+### ≈IMPORTANTE!!!!! Na primeira vez é necessário instalar as dependências:
 
 1. `npm install`
 2. Se for em ambiente local: `npm install --dev`
