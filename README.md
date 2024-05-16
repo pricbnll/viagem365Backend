@@ -25,7 +25,7 @@ Clone o repositório em sua máquina em uma pasta local
 
 `Git clone https://github.com/pricbnll/viagem365.git`
 
-## Rodar as migrations
+## Se necessário rodar as migrations:
 
 `sequelize db:migrate`
 
