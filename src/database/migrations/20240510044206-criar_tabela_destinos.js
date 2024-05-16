@@ -39,9 +39,13 @@ module.exports = {
             allowNull: false,
             type: Sequelize.INTEGER
         },
-        coordenadas_geograficas: {
-            allowNull: false,
-            type: Sequelize.FLOAT
+        latitude: {
+          type: Sequelize.STRING,
+          allowNull: true,
+        },
+        longitude: {
+          type: Sequelize.STRING,
+          allowNull: true,
         },
         createdAt: {
           allowNull: false,
