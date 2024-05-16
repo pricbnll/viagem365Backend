@@ -98,6 +98,7 @@ Pelo browser:
 Caso tenha alguma dúvida!!
 
 [SEQUELIZE](https://sequelize.org/docs/v6/core-concepts/model-basics/)
+
 [SWAGGER Autogen](https://swagger-autogen.github.io/docs/)
 
 ### 📝 Preencher o .env com seus dados
