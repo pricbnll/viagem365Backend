@@ -30,6 +30,14 @@ Clone o repositório em sua máquina em uma pasta local
 
 `Git clone https://github.com/pricbnll/viagem365.git`
 
+## 🤖 Como rodar o Swagger:
+
+Pelo terminal passa o comando: `[node ./swagger.js]` 
+
+Pelo browser:
+[link] (http://localhost:3365/docs)
+
+
 ### Sempre que precisas rodar o repositório em ambiente local
 
 `npm run start:dev`
@@ -79,15 +87,6 @@ Para ter valores inciais no banco de dados será necessário rodar o comando aba
 ### instalar o Swagger AutoGen para gerar o documento Swagger de forma automática.
 
 `npm install swagger-autogen`
-
-
-## 🤖 Como rodar o Swagger:
-
-Pelo terminal passa o comando: `[node ./swagger.js]` 
-
-Pelo browser:
-[link] (http://localhost:3365/docs)
-
 
 
 ## 📂 PARA ACESSAR A DOCUMENTAÇÃO ACESSE O LINK:
