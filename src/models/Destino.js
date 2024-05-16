@@ -1,4 +1,4 @@
-const { DataTypes } = require("DataTypes");
+const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
 
 const Destino = connection.define("destinos", {
@@ -17,9 +17,12 @@ const Destino = connection.define("destinos", {
       cep: {
           type: DataTypes.INTEGER
       },
-      coordenadas_geograficas: {
-          type: DataTypes.FLOAT
+      latitude: {
+          type: DataTypes.STRING
       },
+      longitude: {
+        type: DataTypes.STRING
+    },
 });
 
 module.exports = Destino;

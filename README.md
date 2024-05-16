@@ -1,19 +1,27 @@
-# Não faça sua viagem sem antes utilizar a plataforma Viagem365
 
+# 🚀 Não faça sua viagem sem antes utilizar a plataforma Viagem365
 
-  O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas. Os usuários podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável e compartilhar suas experiências. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e seleção de destinos, visualização de informações dos destinos, entre outras. 
+ 
+  O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagens que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras. 
   
   
 ## 🏦 Módulo 1 - Projeto Avaliativo
 
+Este repositório se baseia em um projeto avaliativo do curso FuturoDev o qual faço parte da turma TRIP com entrega no dia 17/05/2024 encerrando o primeiro módulo.
+Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser criadas na aplicação com todas as regras de entrega do projeto avaliativo.
+
 **Objetivo: Montagem e execução de uma aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL - Software MVP**
 
-A Viagem365, deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações referente aos locais, usuários do aplicativo e comentários.
+A API Viagem365 deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações do usuário(s) e seus destino(s).
 
   *Bora usar as boas praticas de desenvolvimento de software!*
 
 
-Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser criadas na aplicação com todas as regras de entrega do projeto avaliativo.
+## 📉 Diagrama relacional
+
+<p>
+  <img src = "./assets/projetoModulo1-FloripaMaisTech.jpg">
+</p>
 
 
 ## 🤖 Como rodar o repositório:
@@ -21,6 +29,16 @@ Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser cria
 Clone o repositório em sua máquina em uma pasta local 
 
 `Git clone https://github.com/pricbnll/viagem365.git`
+
+### Sempre que precisas rodar o repositório em ambiente local
+
+`npm run start:dev`
+
+## 🌱 SEEDERS
+
+Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
+
+`sequelize db:seed:all`
 
 ### ≈Na primeira vez é necessário instalar as dependências:
 
@@ -51,9 +69,35 @@ Clone o repositório em sua máquina em uma pasta local
 `npm install jsonwebtoken`
 
 ### instalar o Nodemon nas devDependencies
+
 `npm install nodemon --save-dev`
 
-### Preencher o .env com seus dados
+### instalar o Swagger UI
+
+`npm install swagger-ui-express`
+
+### instalar o Swagger AutoGen para gerar o documento Swagger de forma automática.
+
+`npm install swagger-autogen`
+
+
+## 🤖 Como rodar o Swagger:
+
+Pelo terminal passa o comando: `[node ./swagger.js]` 
+
+Pelo browser:
+[link] (http://localhost:3365/docs)
+
+
+
+## 📂 PARA ACESSAR A DOCUMENTAÇÃO ACESSE O LINK:
+
+Caso tenha alguma dúvida!!
+
+[SEQUELIZE](https://sequelize.org/docs/v6/core-concepts/model-basics/)
+[SWAGGER Autogen](https://swagger-autogen.github.io/docs/)
+
+### 📝 Preencher o .env com seus dados
 ```
 DIALECT=postgres 
 HOST=localhost
@@ -65,121 +109,58 @@ PORT_API=3365 #Qual a porta do seu servidor escolhido? Exemplo
 SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 ```
 
-### Sempre que precisas rodar o repositório em ambiente local
+## 🔪 Validações importantes
 
-1. `npm run start:dev`
+- Token JWT - criado na rota login (email e senha do usuário) utilizado para autenticação das rotas privadas. Obs: Token sem tempo de expiração.
+- Tabela usuário:
+  Impor o preenchimento do nome, sexo, data_nascimento, endereco, cpf, email, senha
+  CPF e email ão único - não podem repetir nas colunas respectivas
+  A data de nascimento no formato correto-ANO-MÊS=DIA
+  Um CPF válido com 11 dígitos, não todos iguais e função retirada da Recita Federal (validarCPF)
 
-----------------------
-Você deverá criar a documentação no formato README , explicando a estrutura do
-projeto, como executá-lo localmente, e outras informações relevantes.
-Informar como rodar o sistema - como uma pessoa que nunca rodou um node.
-como executar - baixa .env, npm intstall…..
-resumo que esta o projeto - separou uma pasta para controllers, explicar como foi separado os plano de negocio,
-consumir api externa - mapa do google - ferramenta gratuita + logica programação
-Colocar sobre a production e develop
-Instalação do Node.js e configuração do ambiente de desenvolvimento.
-Configuração do banco de dados relacional com o Sequelize - Documentar o modelo de banco de dados e as migrações utilizadas.
------------------------
-
+- Tabela destinos:
+  Nas rotas o id é extraído do seu token (feito no login)
+  Cep é inserido e através dele extraído as coordenadas geograficas pela API externa (https://docs.awesomeapi.com.br/api-cep) e colocada no banco de dados daquele destino.
+  Somente o usuário daquele destino pode atualizar ou deletar seu(s) destino (s) cadastrado(s).
+  
 ## 🛠️ Construído com
 
-- Trello - aprendendo a criar e mover cards.
-- VsCode - aprendendo a usar a ferramenta e suas extensões.
-- GitHub - aprendendo a utilizar sempre enviando ou trazendo para meu local o repositório, fazendo alterações, GitFlow
-- Node.js - Instalação
-- Express - CRUD
-- Sequelize - aprendendo a usar migration, models, routes...
-- Postgres
-- Postman
-- JWT
-- Swagger
-- Seeds 
+- Trello - todos os passos que fiz para criar, roteiro da aplicação, regras de negócios e validações exigidas
+- VsCode - para formar o código em Node.js
+- GitHub - utilizando o GitFlow, criado a main, develop e algumas branches para desenvolver cada passo exigido (rotas, controllers, seeders, swagger, API externa para obter coordenadas geográficas a partir do CEP informado...)
+- Node.js 
+- Express - para execução do javascript como linguagem de back-end.
+- Sequelize - usado na formulação da migration, models, controllers, routes...
+- Postgres - utilizado como Banco de dados.
+- Postman - Utilizado para criar, compartilhar, testar e documentar APIs
+- JWT - utilizado para geração do token que utilizaremos nas autenticação das rotas privadas
+- Swagger - criar manualmente a documentação da API
+- Seeds - usadas para popular automaticamente o banco de dados com dados de teste ou dados iniciais
+
   
 
-## 🧑🏻‍🏫 Professores par auxilio
+## 🧑🏻‍🏫 Professores para auxilio
 
 * **Rawan.H** - [GitHub](https://github.com/Hawangledt)
 * **Douglas Cavalcante** - [GitHub](https://github.com/douglas-cavalcante)
 
 
-## Melhorias
+## 👀 Melhorias
 
+- Outros usuários fazer comentário nos destinos de outros usuários.
+- Aprender a utilizar o npm e seus validators (npm i cpf-cnpj-validator -S)
+- Dar um tempo de expiração ao token, por exemplo de 24 horas ou até a troca do dia.
+- Melhorar o Gitflow. Cada branch da develop deve ser somente sobre o tema que ela propões.
 
 
 ## 🎁 Expressões de gratidão
 
 * O Floripa Mais Tec é uma iniciativa da Prefeitura de Florianópolis, em parceria com SENAI/SC, SEBRAE e ACATE, que visa democratizar o acesso ao ensino tecnológico para todos, oferecendo cursos de Tecnologia gratuitos!  📢;
 * Lab365 e todos os monitores;
-* Qualquer dúvida ou sugestão de melhorar o código eu aceito - algumas escrevi acima;
-* Grata a todos os alunos da TRIP - voces são uns queriduxxxx 🫂;
+* Aos melhores colegas de classe de TRIP e NATURE que alguém poderia ter! 
+* Qualquer dúvida ou sugestão de melhorar o código eu aceito - algumas escrevi acima!!!
 
 
-## Video de apresentação do MiniProjeto 1
+## 	📹 Video de apresentação do MiniProjeto 1
 
 [Video] - ()
-
-
-
-
-
-ERRO
-/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/node_modules/express/lib/application.js:217
-    throw new TypeError('app.use() requires a middleware function')
-    ^
-
-TypeError: app.use() requires a middleware function
-    at Function.use (/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/node_modules/express/lib/application.js:217:11)
-    at new Server (/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/src/server.js:13:12)
-    at Object.<anonymous> (/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/src/index.js:3:16)
-    at Module._compile (node:internal/modules/cjs/loader:1241:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1295:10)
-    at Module.load (node:internal/modules/cjs/loader:1091:32)
-    at Module._load (node:internal/modules/cjs/loader:938:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)
-    at node:internal/main/run_main_module:23:47
-
-Node.js v20.9.0
-[nodemon] app crashed - waiting for file changes before starting...
-^C
- ~/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/ [feature_migrations] npm run start:dev
-
-> start:dev
-> nodemon src/index.js
-
-[nodemon] 3.1.0
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching path(s): *.*
-[nodemon] watching extensions: js,mjs,cjs,json
-[nodemon] starting `node src/index.js`
-Servidor executando na porta 3365
-Executing (default): SELECT 1+1 AS result
-Conexão bem sucedida!
-[nodemon] restarting due to changes...
-[nodemon] starting `node src/index.js`
-node:events:492
-      throw er; // Unhandled 'error' event
-      ^
-
-Error: listen EADDRINUSE: address already in use :::3365
-    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
-    at listenInCluster (node:net:1920:12)
-    at Server.listen (node:net:2008:7)
-    at Function.listen (/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/node_modules/express/lib/application.js:635:24)
-    at Server.initializeServer (/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/src/server.js:35:9)
-    at new Server (/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/src/server.js:14:10)
-    at Object.<anonymous> (/Users/pricbnll/Documents/frontEnd/floripaMaisTech/futuroDevTrip/projeto modulo 1/viagem365/src/index.js:3:16)
-    at Module._compile (node:internal/modules/cjs/loader:1241:14)
-    at Module._extensions..js (node:internal/modules/cjs/loader:1295:10)
-    at Module.load (node:internal/modules/cjs/loader:1091:32)
-Emitted 'error' event on Server instance at:
-    at emitErrorNT (node:net:1899:8)
-    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
-  code: 'EADDRINUSE',
-  errno: -48,
-  syscall: 'listen',
-  address: '::',
-  port: 3365
-}
-
-Node.js v20.9.0
-[nodemon] app crashed - waiting for file changes before starting...
