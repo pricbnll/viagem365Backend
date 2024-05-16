@@ -2,15 +2,15 @@
 # 🚀 Não faça sua viagem sem antes utilizar a plataforma Viagem365
 
  
-  O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagems que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras. 
+  O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagens que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras. 
   
   
 ## 🏦 Módulo 1 - Projeto Avaliativo
 
-Este reposiório se baseia em um projeto avaliativo do curso FuturoDev o qual faço parte da turma TRIP com enterga no dia 17/05/2024 encerrando o primeiro módulo.
+Este repositório se baseia em um projeto avaliativo do curso FuturoDev o qual faço parte da turma TRIP com entrega no dia 17/05/2024 encerrando o primeiro módulo.
 Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser criadas na aplicação com todas as regras de entrega do projeto avaliativo.
 
-**Objetivo: Montagem e execução de Software MVP numa aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL**
+**Objetivo: Montagem e execução de uma aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL - Software MVP**
 
 A API Viagem365 deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações do usuário(s) e seus destino(s).
 
@@ -116,18 +116,18 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
   Impor o preenchimento do nome, sexo, data_nascimento, endereco, cpf, email, senha
   CPF e email ão único - não podem repetir nas colunas respectivas
   A data de nascimento no formato correto-ANO-MÊS=DIA
-  Um CPF válido com 11 digitos, não todos iguais e funçõ retirada da Recita Federal (validarCPF)
+  Um CPF válido com 11 dígitos, não todos iguais e função retirada da Recita Federal (validarCPF)
 
 - Tabela destinos:
-  Nas rotas o id é extraido do seu token (feito no login)
-  Cep é inserido e atraves dele extraido as coordenadas geograficas pela API externa (https://docs.awesomeapi.com.br/api-cep) e colocada no banco de dados daquele destino.
+  Nas rotas o id é extraído do seu token (feito no login)
+  Cep é inserido e através dele extraído as coordenadas geograficas pela API externa (https://docs.awesomeapi.com.br/api-cep) e colocada no banco de dados daquele destino.
   Somente o usuário daquele destino pode atualizar ou deletar seu(s) destino (s) cadastrado(s).
   
 ## 🛠️ Construído com
 
 - Trello - todos os passos que fiz para criar, roteiro da aplicação, regras de negócios e validações exigidas
 - VsCode - para formar o código em Node.js
-- GitHub - utilizabdo o GitFlow, criado a main, develop e algumas branches para desenvolver cada passo exigido (rotas, controllers, seeders, swagger, API externa para obter coordenadas geográficas a partir do CEP informado...)
+- GitHub - utilizando o GitFlow, criado a main, develop e algumas branches para desenvolver cada passo exigido (rotas, controllers, seeders, swagger, API externa para obter coordenadas geográficas a partir do CEP informado...)
 - Node.js 
 - Express - para execução do javascript como linguagem de back-end.
 - Sequelize - usado na formulação da migration, models, controllers, routes...
@@ -148,8 +148,9 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 ## 👀 Melhorias
 
 - Outros usuários fazer comentário nos destinos de outros usuários.
-- Aprender a utlizar o npm e seus validators (npm i cpf-cnpj-validator -S)
+- Aprender a utilizar o npm e seus validators (npm i cpf-cnpj-validator -S)
 - Dar um tempo de expiração ao token, por exemplo de 24 horas ou até a troca do dia.
+- Melhorar o Gitflow. Cada branch da develop deve ser somente sobre o tema que ela propões.
 
 
 ## 🎁 Expressões de gratidão
