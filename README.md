@@ -25,6 +25,10 @@ Clone o repositório em sua máquina em uma pasta local
 
 `Git clone https://github.com/pricbnll/viagem365.git`
 
+## Rodar as migrations
+
+`sequelize db:migrate`
+
 ## 🌱 SEEDERS
 
 Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
