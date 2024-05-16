@@ -34,7 +34,11 @@ Clone o repositório em sua máquina em uma pasta local
 
 Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
 
-`sequelize db:seed:all`
+PRIMEIRO:
+`sequelize-cli db:seed --seed usuario.seeders.js`
+SEGUNDO:
+`sequelize-cli db:seed --seed destino.seeders.js`
+
 
 ## 🤖 Como rodar o Swagger:
 
