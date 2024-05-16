@@ -155,6 +155,7 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 - Aprender a utilizar o npm e seus validators (npm i cpf-cnpj-validator -S)
 - Dar um tempo de expiração ao token, por exemplo de 24 horas ou até a troca do dia.
 - Melhorar o Gitflow. Cada branch da develop deve ser somente sobre o tema que ela propões.
+- Fazer YUP
 
 
 ## 🎁 Expressões de gratidão
