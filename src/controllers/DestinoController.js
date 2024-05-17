@@ -82,7 +82,7 @@ class DestinoController {
             #swagger.description ='Listar um destino por usuário'
     */
 
-    const id = req.payload.sub;
+    const id = req.params;
 
     try {
       const usuario = await Usuario.findByPk(id);
