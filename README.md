@@ -9,7 +9,7 @@ Seguindo um roteiro e aplicando as regras de negócio e rotas que devem ser cria
 
 **Objetivo: Montagem e execução de uma aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL - Software MVP**
 
-A API Viagem365 deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações do usuário(s) e seus destino(s).
+A API Viagem365 deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações do usuário(s) e seus destino(s) que poderá servir para gerar um aplicativo que demonstra os pontos de interesses dos usuários para coletar dados, gerar marketing pra empresas de turismo, engajamento em rotas desconhecidas e melhorias de conservação da natureza local...
 
   *Bora usar as boas praticas de desenvolvimento de software!*
 
@@ -27,6 +27,8 @@ Clone o repositório em sua máquina em uma pasta local
 
 ## Se necessário rodar as migrations:
 
+Se não houverem tabelas em seu Banco de Dados, rodar as migrations para gerá-los.
+
 `sequelize db:migrate`
 
 ## 🌱 SEEDERS
@@ -41,7 +43,7 @@ SEGUNDO:
 
 ## 🤖 Como rodar o Swagger:
 
-Pelo terminal passa o comando: `[node ./swagger.js]` 
+Pelo terminal passa o comando: `node ./swagger.js` 
 
 Pelo browser:
 [link] (http://localhost:3365/docs)
