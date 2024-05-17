@@ -79,20 +79,38 @@ class DestinoController {
   async listarDestinosPorUsuario(req, res) {
     /*
             #swagger.tags = ['Destino'],
-            #swagger.description ='Listar um destino por usuário'
+            #swagger.parameters['path'] = {
+                in: 'path',
+                description: 'Listar um destino por usuário'
+                path:   /local/:usuario_id:
     */
 
-    const id = req.payload.sub;
+    const { usuario_id } = req.params; 
+    const usuarioAutenticadoId = req.payload.sub; 
+    console.log(usuarioAutenticadoId)
+    console.log(usuario_id)
+    
+    if (parseInt(usuario_id) !== usuarioAutenticadoId) {
+      return res.status(403).json({ mensagem: "Acesso não autorizado." });
+    }
 
     try {
-      const usuario = await Usuario.findByPk(id);
+      const usuario = await Usuario.findByPk(usuarioAutenticadoId);
       if (!usuario) {
         return res.status(404).json({ mensagem: "Usuário não encontrado." });
       }
 
       const destinosPorUsuario = await Destino.findAll({
-        where: { usuario_id: id },
+        where: {
+          usuario_id: usuarioAutenticadoId,
+        },
       });
+
+      if (destinosPorUsuario.length === 0) {
+        return res
+          .status(404)
+          .json({ mensagem: "Nenhum destino encontrado para este usuário." });
+      }
 
       res.status(200).json(destinosPorUsuario);
     } catch (error) {
@@ -100,6 +118,7 @@ class DestinoController {
       res.status(500).json({ mensagem: "Erro ao buscar destinos do usuário." });
     }
   }
+
 
   async listarTodos(req, res) {
     /*
