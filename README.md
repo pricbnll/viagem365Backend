@@ -45,6 +45,7 @@ Para ter valores inciais no banco de dados será necessário rodar o comando aba
 
 PRIMEIRO:
 `sequelize-cli db:seed --seed usuario.seeders.js`
+
 SEGUNDO:
 `sequelize-cli db:seed --seed destino.seeders.js`
 
