@@ -25,11 +25,29 @@ Clone o repositório em sua máquina em uma pasta local
 
 `Git clone https://github.com/pricbnll/viagem365.git`
 
-## Se necessário rodar as migrations:
+
+### ≈IMPORTANTE!!!!! Na primeira vez é necessário instalar as dependências:
+
+1. `npm install`
+2. Se for em ambiente local: `npm install --dev`
+3. `cp .env_example .env` - Altere o nome da pasta para **.env**, configure com seus dados conforme as perguntas /descrição e salve.
+
+ ## Rodar as migrations:
 
 Se não houverem tabelas em seu Banco de Dados, rodar as migrations para gerá-los.
 
-`sequelize db:migrate`
+`sequelize db:migrate`  
+
+
+## Postman:
+
+- Importe *projetoModulo1-FloripaMaisTech.jpg* que se localiza ,a pasta **assets** para o seu postman (assets/projetoModulo1-FloripaMaisTech.jpg)
+- Após testar pelo Postman você podera utirlzar a ferramento do swgger que ja vem com alguns exemplos -
+  
+
+### Sempre que precisas rodar o repositório em ambiente local
+
+`npm run start:dev`
 
 ## 🌱 SEEDERS
 
@@ -47,18 +65,6 @@ Pelo terminal passa o comando: `node ./swagger.js`
 
 Pelo browser:
 [link] (http://localhost:3365/docs)
-
-
-### Sempre que precisas rodar o repositório em ambiente local
-
-`npm run start:dev`
-
-
-### ≈IMPORTANTE!!!!! Na primeira vez é necessário instalar as dependências:
-
-1. `npm install`
-2. Se for em ambiente local: `npm install --dev`
-3. `cp .env_example .env`
 
 ## Instale as bibliotecas utilizadas:
 
@@ -103,18 +109,7 @@ Caso tenha alguma dúvida!!
 
 [SWAGGER Autogen](https://swagger-autogen.github.io/docs/)
 
-### 📝 Preencher o .env com seus dados
-```
-DIALECT=postgres 
-HOST=localhost
-USERNAMEDB=postgres #Qual o username da sua DataBase? Exemplo
-PASSWORDDB=postgres 'Qual a senha do seu DataBase? Exemplo
-DATABASE=viagem365 #Qual o nome da DataBase? Exemplo
-PORT=5432
-PORT_API=3365 #Qual a porta do seu servidor escolhido? Exemplo
-SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
-```
-
+  
 ## 🔪 Validações importantes
 
 - Token JWT - criado na rota login (email e senha do usuário) utilizado para autenticação das rotas privadas. Obs: Token sem tempo de expiração.
@@ -159,6 +154,7 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 - Dar um tempo de expiração ao token, por exemplo de 24 horas ou até a troca do dia.
 - Melhorar o Gitflow. Cada branch da develop deve ser somente sobre o tema que ela propões.
 - Fazer YUP
+- Alterar a PORT_API automáticamente do postman - swagger ok!
 
 
 ## 🎁 Expressões de gratidão
