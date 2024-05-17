@@ -32,13 +32,16 @@ Clone o repositório em sua máquina em uma pasta local
 2. Se for em ambiente local: `npm install --dev`
 3. `cp .env_example .env` - No documento criado de nome **.env**, configure com seus dados conforme as perguntas /descrição e salve.
 
- ## Rodar as migrations:
+ ## Rodar as migrations
+
+ 1. Cria uma dataBase em seu postgress PGADMIN com o nome : viagem365 ou igual ao que colocaste no teu .env.
+ 2.  Rode o comando para fazer a migração das tabelas
 
 `sequelize db:migrate`  
 
 ## 🌱 SEEDERS
 
-Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
+Para ter valores inciais no banco de dados será necessário rodar o comando abaixo. Voce tera alguns dados em seu Banco de dados para testar login e destino: listar por usuário, atualizar algum existente ou deletar
 
 PRIMEIRO:
 `sequelize-cli db:seed --seed usuario.seeders.js`
@@ -49,7 +52,7 @@ SEGUNDO:
 
 `npm run start:dev` - conexão bem sucedida!   ----    Conseguiu?
 
-## TESTAR O POSTMAN - Postman:
+## Você pode tetar no TESTAR O POSTMAN - Postman:
 
 - Importe (Import>file) *projetoModulo1-FloripaMaisTech.jpg* que se localiza ,a pasta **assets** para o seu postman (assets/projetoModulo1-FloripaMaisTech.jpg)
 - Após testar pelo Postman você podera utilizar a ferramento do sawgger que ja vem com alguns exemplos - Não esquece de utilizar da autentcação gerado no login do usuarios nas rotas de destinos - headers>Authorization>Value)
