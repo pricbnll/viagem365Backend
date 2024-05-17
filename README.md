@@ -166,4 +166,4 @@ Caso tenha alguma dúvida!!
 
 ## 	📹 Video de apresentação do MiniProjeto 1
 
-[Video] - ()
+[Video] - (https://drive.google.com/file/d/1FjB60UhLORVKXOi2ggWeVaqYoWDFr7Il/view?usp=drive_link)
