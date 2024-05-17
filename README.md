@@ -1,9 +1,6 @@
-
 # 🚀 Não faça sua viagem sem antes utilizar a plataforma Viagem365
 
- 
   O Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagens que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras. 
-  
   
 ## 🏦 Módulo 1 - Projeto Avaliativo
 
@@ -16,13 +13,11 @@ A API Viagem365 deseja automatizar algumas ações de atendimento, criando um si
 
   *Bora usar as boas praticas de desenvolvimento de software!*
 
-
 ## 📉 Diagrama relacional
 
 <p>
   <img src = "./assets/projetoModulo1-FloripaMaisTech.jpg">
 </p>
-
 
 ## 🤖 Como rodar o repositório:
 
@@ -30,17 +25,34 @@ Clone o repositório em sua máquina em uma pasta local
 
 `Git clone https://github.com/pricbnll/viagem365.git`
 
-### Sempre que precisas rodar o repositório em ambiente local
+## Se necessário rodar as migrations:
 
-`npm run start:dev`
+`sequelize db:migrate`
 
 ## 🌱 SEEDERS
 
 Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
 
-`sequelize db:seed:all`
+PRIMEIRO:
+`sequelize-cli db:seed --seed usuario.seeders.js`
+SEGUNDO:
+`sequelize-cli db:seed --seed destino.seeders.js`
 
-### ≈Na primeira vez é necessário instalar as dependências:
+
+## 🤖 Como rodar o Swagger:
+
+Pelo terminal passa o comando: `[node ./swagger.js]` 
+
+Pelo browser:
+[link] (http://localhost:3365/docs)
+
+
+### Sempre que precisas rodar o repositório em ambiente local
+
+`npm run start:dev`
+
+
+### ≈IMPORTANTE!!!!! Na primeira vez é necessário instalar as dependências:
 
 1. `npm install`
 2. Se for em ambiente local: `npm install --dev`
@@ -81,20 +93,12 @@ Para ter valores inciais no banco de dados será necessário rodar o comando aba
 `npm install swagger-autogen`
 
 
-## 🤖 Como rodar o Swagger:
-
-Pelo terminal passa o comando: `[node ./swagger.js]` 
-
-Pelo browser:
-[link] (http://localhost:3365/docs)
-
-
-
 ## 📂 PARA ACESSAR A DOCUMENTAÇÃO ACESSE O LINK:
 
 Caso tenha alguma dúvida!!
 
 [SEQUELIZE](https://sequelize.org/docs/v6/core-concepts/model-basics/)
+
 [SWAGGER Autogen](https://swagger-autogen.github.io/docs/)
 
 ### 📝 Preencher o .env com seus dados
@@ -112,6 +116,7 @@ SECRET_JWT=viagem365 #Qual a senha secreta para gerar o JWT? Exemplo
 ## 🔪 Validações importantes
 
 - Token JWT - criado na rota login (email e senha do usuário) utilizado para autenticação das rotas privadas. Obs: Token sem tempo de expiração.
+  
 - Tabela usuário:
   Impor o preenchimento do nome, sexo, data_nascimento, endereco, cpf, email, senha
   CPF e email ão único - não podem repetir nas colunas respectivas
