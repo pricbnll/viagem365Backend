@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "dd7ffa72-4a47-4b28-a317-f180ef56d6f8",
+		"_postman_id": "ae0b9c02-d80f-460c-ab8c-9d5d19f21f61",
 		"name": "Viagem365",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"description": "# 🚀 Não faça sua viagem sem antes utilizar a plataforma Viagem365\n\nO Viagem365 é uma plataforma que visa promover viagens sustentáveis e experiências positivas para os usuários, fornecendo acesso a informações sobre destinos turísticos, praias, atrações naturais e atividades recreativas os quais os usuários poderão cadastra-los em cada viagens que fizerem. Também podem explorar e descobrir novos destinos, encontrar dicas de viagem sustentável com as experiências de outros viajantes. As funcionalidades incluem o cadastro de novos usuários, listagem, edição e deleção de destinos, visualização de informações dos destinos, entre outras.\n\n## 🏦 Módulo 1 - Projeto Avaliativo\n\nEste repositório se baseia em um projeto avaliativo do curso FuturoDev o qual faço parte da turma TRIP com entrega no dia 17/05/2024 encerrando o primeiro módulo.  \nSeguindo um roteiro e aplicando as regras de negócio e rotas que devem ser criadas na aplicação com todas as regras de entrega do projeto avaliativo.\n\n**Objetivo: Montagem e execução de uma aplicação Back-End, que deverá ser uma API Rest, codificada com uso do Node, Express e PostgreSQL - Software MVP**\n\nA API Viagem365 deseja automatizar algumas ações de atendimento, criando um sistema para armazenamento de informações do usuário(s) e seus destino(s) que poderá servir para gerar um aplicativo que demonstra os pontos de interesses dos usuários para coletar dados, gerar marketing pra empresas de turismo, engajamento em rotas desconhecidas e melhorias de conservação da natureza local...\n\n_Bora usar as boas praticas de desenvolvimento de software!_",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33911854"
 	},
 	"item": [
@@ -26,7 +27,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:3365/usuarios"
+				"url": {
+					"raw": "http://localhost:3365/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"usuarios"
+					]
+				}
 			},
 			"response": []
 		},
@@ -43,14 +54,24 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"email\": \"caca@gmaiil.com\",\n        \"senha\": \"3333\"\n}",
+					"raw": "{\n    \"email\": \"pri@gmail.com\",\n    \"senha\": \"1111\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:3365/login"
+				"url": {
+					"raw": "http://localhost:3365/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
@@ -61,23 +82,29 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjg2LCJlbWFpbCI6InByaXNjQGdtYWlsLmNvbSIsIm5vbWUiOiJQcmljaWxhIiwic2VuaGEiOiIxMTExIiwiaWF0IjoxNzE1NTU2ODg0fQ.rsH8JD8_1z2VoIqFnqh_pY5ZKLIwZrDnX3SUBI-wI5A"
-					},
-					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjg3LCJlbWFpbCI6InByaUBnbWFpbC5jb20iLCJub21lIjoiUHJpY2lsYSIsInNlbmhhIjoiMTExMSIsImlhdCI6MTcxNTU1NzEzNX0.vRmKLGEkTPlP_BllbYW0Bze6etoUm6njYevZsJWmmFs"
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoicHJpQGdtYWlsLmNvbSIsIm5vbWUiOiJQcmljaWxhIiwic2VuaGEiOiIxMTExIiwiaWF0IjoxNzE1OTY0NDg3fQ.gPmoeNAMdBpoSYuLjw7Bha6GClKONmIPlLUSi1ARQxI"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"destino\" : \"Dunas da Joaquina na Lagoa da Conceição\",\n    \"descricao\" : \"As Dunas da Joaquina são uma impressionante formação natural localizada entre a Lagoa da Conceição e o mar. São famosas para a prática do “sandboard”, esporte em que as pessoas descem as dunas em pranchas.\",\n    \"localidade\" : \"Lagoa da Conceição de Florianópolis/SC - Brasil\",\n    \"cep\" : 88048424,\n    \"coordenadas_geograficas\" : \"27.4705,48.3886\"\n}\n",
+					"raw": "{\n    \"destino\" : \"Dunas da Joaquina na Lagoa da Conceição\",\n    \"descricao\" : \"As Dunas da Joaquina são uma impressionante formação natural localizada entre a Lagoa da Conceição e o mar. São famosas para a prática do “sandboard”, esporte em que as pessoas descem as dunas em pranchas.\",\n    \"localidade\" : \"Lagoa da Conceição de Florianópolis/SC - Brasil\",\n    \"cep\" : 88048424\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:3365/local"
+				"url": {
+					"raw": "http://localhost:3365/local",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"local"
+					]
+				}
 			},
 			"response": []
 		},
@@ -88,8 +115,7 @@
 			},
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": {}
+					"type": "bearer"
 				},
 				"method": "GET",
 				"header": [],
@@ -102,32 +128,17 @@
 						}
 					}
 				},
-				"url": "http://localhost:3365/usuarios"
-			},
-			"response": []
-		},
-		{
-			"name": "Listar todos os destinos por id de destino",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {}
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:3365/usuarios"
+				"url": {
+					"raw": "http://localhost:3365/local",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"local"
+					]
+				}
 			},
 			"response": []
 		},
@@ -138,8 +149,7 @@
 			},
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": {}
+					"type": "bearer"
 				},
 				"method": "GET",
 				"header": [],
@@ -152,7 +162,18 @@
 						}
 					}
 				},
-				"url": "http://localhost:3365/local/50"
+				"url": {
+					"raw": "http://localhost:3365/local/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"local",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -163,14 +184,25 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"usuario_id\" : 50,\n    \"destino\" : \"Dunas da Joaquina na Lagoa da Conceição\",\n    \"descricao\" : \"As Dunas da Joaquina são uma impressionante formação natural localizada entre a Lagoa da Conceição e o mar. São famosas para a prática do “sandboard”, esporte em que as pessoas descem as dunas em pranchas.\",\n    \"localidade\" : \"Lagoa da Conceição em Florianópolis/SC - Brasil\",\n    \"cep\" : \"88048424\",\n    \"coordenadas_geograficas\" : \"27,4705, 48,3886\"\n}",
+					"raw": "{\n    \"destino\" : \"Dunas da Joaquina na Lagoa da Conceição\",\n    \"descricao\" : \"As Dunas da Joaquina são uma impressionante formação natural localizada entre a Lagoa da Conceição e o mar. São famosas para a prática do “sandboard”, esporte em que as pessoas descem as dunas em pranchas.\",\n    \"localidade\" : \"Lagoa da Conceição em Florianópolis/SC - Brasil\",\n    \"cep\" : \"88048424\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
-				"url": "http://localhost:3365/local/3"
+				"url": {
+					"raw": "http://localhost:3365/local/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"local",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -179,7 +211,18 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:3300/usuarios/47"
+				"url": {
+					"raw": "http://localhost:3365/local/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"local",
+						"2"
+					]
+				}
 			},
 			"response": []
 		},
@@ -188,7 +231,17 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"url": "http://localhost:3365/local"
+				"url": {
+					"raw": "http://localhost:3365/local",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3365",
+					"path": [
+						"local"
+					]
+				}
 			},
 			"response": []
 		}
