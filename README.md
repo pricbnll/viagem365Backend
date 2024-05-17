@@ -56,7 +56,7 @@ SEGUNDO:
 ## 🥸 Você pode tetar no TESTAR O POSTMAN - Postman:
 
 - Importe (Import>file) *projetoModulo1-FloripaMaisTech.jpg* que se localiza ,a pasta **assets** para o seu postman (assets/projetoModulo1-FloripaMaisTech.jpg)
-- Após testar pelo Postman você podera utilizar a ferramento do sawgger que ja vem com alguns exemplos - Não esquece de utilizar da autentcação gerado no login do usuarios nas rotas de destinos - headers>Authorization>Value)
+- Após testar pelo Postman você podera utilizar a ferramento do sawgger que ja vem com alguns exemplos - Não esquece de utilizar da autentcação gerado no login do usuarios nas rotas de destinos - headers>Authorization>Value
   
 ## 🤖 Como rodar o Swagger:
 
@@ -153,7 +153,7 @@ Caso tenha alguma dúvida!!
 - Dar um tempo de expiração ao token, por exemplo de 24 horas ou até a troca do dia.
 - Melhorar o Gitflow 😳 - Cada branch da develop deve ser somente sobre o tema que ela propõem.
 - Fazer YUP
-- Alterar a PORT_API automáticamente do postman - swagger ok!
+- Alterar a PORT_API automaticamente do postman - swagger ok!
 
 
 ## 🎁 Expressões de gratidão
@@ -165,5 +165,7 @@ Caso tenha alguma dúvida!!
 
 
 ## 	📹 Video de apresentação do MiniProjeto 1
+
+No video fiz uma apresentação rápida do projeto com alguns demostrações no Postman e um objetivo maior de uma comunicação mais assertiva, sem  um roteiro pre determinado. 
 
 [Video] - (https://drive.google.com/file/d/1FjB60UhLORVKXOi2ggWeVaqYoWDFr7Il/view?usp=drive_link)
