@@ -30,24 +30,11 @@ Clone o repositório em sua máquina em uma pasta local
 
 1. `npm install`
 2. Se for em ambiente local: `npm install --dev`
-3. `cp .env_example .env` - Altere o nome da pasta para **.env**, configure com seus dados conforme as perguntas /descrição e salve.
+3. `cp .env_example .env` - No documento criado de nome **.env**, configure com seus dados conforme as perguntas /descrição e salve.
 
  ## Rodar as migrations:
 
-Se não houverem tabelas em seu Banco de Dados, rodar as migrations para gerá-los.
-
 `sequelize db:migrate`  
-
-
-## Postman:
-
-- Importe *projetoModulo1-FloripaMaisTech.jpg* que se localiza ,a pasta **assets** para o seu postman (assets/projetoModulo1-FloripaMaisTech.jpg)
-- Após testar pelo Postman você podera utirlzar a ferramento do swgger que ja vem com alguns exemplos -
-  
-
-### Sempre que precisas rodar o repositório em ambiente local
-
-`npm run start:dev`
 
 ## 🌱 SEEDERS
 
@@ -58,7 +45,15 @@ PRIMEIRO:
 SEGUNDO:
 `sequelize-cli db:seed --seed destino.seeders.js`
 
+### Sempre que precisas rodar o repositório em ambiente local
 
+`npm run start:dev` - conexão bem sucedida!   ----    Conseguiu?
+
+## TESTAR O POSTMAN - Postman:
+
+- Importe (Import>file) *projetoModulo1-FloripaMaisTech.jpg* que se localiza ,a pasta **assets** para o seu postman (assets/projetoModulo1-FloripaMaisTech.jpg)
+- Após testar pelo Postman você podera utilizar a ferramento do sawgger que ja vem com alguns exemplos - Não esquece de utilizar da autentcação gerado no login do usuarios nas rotas de destinos - headers>Authorization>Value)
+  
 ## 🤖 Como rodar o Swagger:
 
 Pelo terminal passa o comando: `node ./swagger.js` 
