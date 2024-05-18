@@ -87,8 +87,6 @@ class DestinoController {
 
     const { usuario_id } = req.params; 
     const usuarioAutenticadoId = req.payload.sub; 
-    console.log(usuarioAutenticadoId)
-    console.log(usuario_id)
     
     if (parseInt(usuario_id) !== usuarioAutenticadoId) {
       return res.status(403).json({ mensagem: "Acesso não autorizado." });

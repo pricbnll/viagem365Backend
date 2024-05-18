@@ -32,16 +32,20 @@ Clone o repositório em sua máquina em uma pasta local
 2. Se for em ambiente local: `npm install --dev`
 3. `cp .env_example .env` - No documento criado de nome **.env**, configure com seus dados conforme as perguntas /descrição e salve.
 
- ## Rodar as migrations:
+ ## 🧐 Rodar as migrations
+
+ 1. Cria uma dataBase em seu postgress PGADMIN com o nome : viagem365 ou igual ao que colocaste no teu .env.
+ 2.  Rode o comando para fazer a migração das tabelas
 
 `sequelize db:migrate`  
 
 ## 🌱 SEEDERS
 
-Para ter valores inciais no banco de dados será necessário rodar o comando abaixo
+Para ter valores inciais no banco de dados será necessário rodar o comando abaixo. Voce tera alguns dados em seu Banco de dados para testar login e destino: listar por usuário, atualizar algum existente ou deletar
 
 PRIMEIRO:
 `sequelize-cli db:seed --seed usuario.seeders.js`
+
 SEGUNDO:
 `sequelize-cli db:seed --seed destino.seeders.js`
 
@@ -49,10 +53,10 @@ SEGUNDO:
 
 `npm run start:dev` - conexão bem sucedida!   ----    Conseguiu?
 
-## TESTAR O POSTMAN - Postman:
+## 🥸 Você pode tetar no TESTAR O POSTMAN - Postman:
 
 - Importe (Import>file) *projetoModulo1-FloripaMaisTech.jpg* que se localiza ,a pasta **assets** para o seu postman (assets/projetoModulo1-FloripaMaisTech.jpg)
-- Após testar pelo Postman você podera utilizar a ferramento do sawgger que ja vem com alguns exemplos - Não esquece de utilizar da autentcação gerado no login do usuarios nas rotas de destinos - headers>Authorization>Value)
+- Após testar pelo Postman você podera utilizar a ferramento do sawgger que ja vem com alguns exemplos - Não esquece de utilizar da autentcação gerado no login do usuarios nas rotas de destinos - headers>Authorization>Value
   
 ## 🤖 Como rodar o Swagger:
 
@@ -147,9 +151,9 @@ Caso tenha alguma dúvida!!
 - Outros usuários fazer comentário nos destinos de outros usuários.
 - Aprender a utilizar o npm e seus validators (npm i cpf-cnpj-validator -S)
 - Dar um tempo de expiração ao token, por exemplo de 24 horas ou até a troca do dia.
-- Melhorar o Gitflow. Cada branch da develop deve ser somente sobre o tema que ela propões.
+- Melhorar o Gitflow 😳 - Cada branch da develop deve ser somente sobre o tema que ela propõem.
 - Fazer YUP
-- Alterar a PORT_API automáticamente do postman - swagger ok!
+- Alterar a PORT_API automaticamente do postman - swagger ok!
 
 
 ## 🎁 Expressões de gratidão
@@ -162,4 +166,6 @@ Caso tenha alguma dúvida!!
 
 ## 	📹 Video de apresentação do MiniProjeto 1
 
-[Video] - ()
+No video fiz uma apresentação rápida do projeto com alguns demostrações no Postman e um objetivo maior de uma comunicação mais assertiva, sem  um roteiro pre determinado. 
+
+[Video] - (https://drive.google.com/file/d/1FjB60UhLORVKXOi2ggWeVaqYoWDFr7Il/view?usp=drive_link)
