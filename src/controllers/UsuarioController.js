@@ -5,6 +5,46 @@ const Destino = require("../models/Destino");
 class UsuarioController {
   async cadastrar(req, res) {
 
+     /*
+      #swagger.tags = ['Usuário']
+      #swagger.description = 'Rota para cadastrar um novo usuário no sistema'
+      #swagger.parameters['body'] = {
+        in: 'body',
+        description: 'Informações do usuário a ser cadastrado',
+        required: true,
+        schema: {
+          $nome: { type: 'string', example: 'João Silva' },
+          $sexo: { type: 'string', example: 'Masculino' },
+          $data_nascimento: { type: 'date', example: '1990-05-20' },
+          $endereco: { type: 'string', example: 'Rua das Flores, 123, Florianópolis' },
+          $cpf: { type: 'string', example: '12345678909' },
+          $email: { type: 'string', example: 'joao.silva@email.com' },
+          $senha: { type: 'string', example: 'senha123' }
+        }
+      }
+      #swagger.responses[201] = {
+        description: 'Usuário cadastrado com sucesso.',
+        schema: {
+          id: { type: 'integer', example: 1 },
+          nome: { type: 'string', example: 'João Silva' },
+          email: { type: 'string', example: 'joao.silva@email.com' },
+          cpf: { type: 'string', example: '12345678909' }
+        }
+      }
+      #swagger.responses[400] = {
+        description: 'Erro na requisição. Campos obrigatórios faltando ou inválidos.',
+        schema: {
+          mensagem: { type: 'string', example: 'O nome é obrigatório' }
+        }
+      }
+      #swagger.responses[500] = {
+        description: 'Erro interno no servidor ao tentar cadastrar o usuário.',
+        schema: {
+          mensagem: { type: 'string', example: 'Não foi possível cadastrar o usuário' }
+        }
+      }
+    */
+
     try {
       const { nome, sexo, data_nascimento, endereco, cpf, email, senha } = req.body;
       
