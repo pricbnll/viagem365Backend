@@ -139,38 +139,96 @@
             "name": "body",
             "in": "body",
             "description": "Cadastrar um novo destino",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
-                "destino": {
+                "type": {
                   "type": "string",
-                  "example": "Mercado Público de Florianópolis"
+                  "example": "object"
                 },
-                "descricao": {
-                  "type": "string",
-                  "example": "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde produtos artesanais, alimentos frescos, até souvenires típicos da região."
-                },
-                "localidade": {
-                  "type": "string",
-                  "example": "Centro de Florianópolis/SC - Brasil"
-                },
-                "cep": {
-                  "type": "number",
-                  "example": 88010030
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "destino": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Mercado Público de Florianópolis"
+                        }
+                      }
+                    },
+                    "descricao": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "O local é um centro de cultura, gastronomia e comércio."
+                        }
+                      }
+                    },
+                    "localidade": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Centro de Florianópolis/SC - Brasil"
+                        }
+                      }
+                    },
+                    "cep": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 88010030
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "destino",
+                    "descricao",
+                    "localidade",
+                    "cep"
+                  ]
                 }
-              },
-              "required": [
-                "destino",
-                "descricao",
-                "localidade",
-                "cep"
-              ]
+              }
             }
           }
         ],
         "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -223,18 +281,19 @@
         }
       }
     },
-    "/local/{id}": {
+    "/local/{usuario_id}": {
       "get": {
         "tags": [
           "Destino"
         ],
-        "description": "Listar um destino por usuário",
+        "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "usuario_id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "description": "ID do usuário para listar destinos"
           },
           {
             "name": "authorization",
@@ -249,6 +308,9 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -256,7 +318,9 @@
             "description": "Internal Server Error"
           }
         }
-      },
+      }
+    },
+    "/local/{id}": {
       "put": {
         "tags": [
           "Destino"
@@ -273,6 +337,98 @@
             "name": "authorization",
             "in": "header",
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Atualizar um destino existente",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "destino": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Mercado Público de Florianópolis"
+                        }
+                      }
+                    },
+                    "descricao": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "O local é um centro de cultura, gastronomia e comércio."
+                        }
+                      }
+                    },
+                    "localidade": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Centro de Florianópolis/SC - Brasil"
+                        }
+                      }
+                    },
+                    "cep": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 88010030
+                        }
+                      }
+                    },
+                    "coordenadas_geograficas": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "-27.59587,-48.55225"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "destino",
+                    "descricao",
+                    "localidade",
+                    "cep",
+                    "coordenadas_geograficas"
+                  ]
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -294,13 +450,14 @@
         "tags": [
           "Destino"
         ],
-        "description": "Deletar um destino por id",
+        "description": "",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "description": "ID do destino a ser deletado"
           },
           {
             "name": "authorization",

@@ -5,19 +5,23 @@ const Usuario = require("../models/Usuario");
 class DestinoController {
   async cadastrar(req, res) {
     /*
-            #swagger.tags = ['Destino'],
-            #swagger.parameters['body'] = {
-                in: 'body',
-                description: 'Cadastrar um novo destino',
-                schema: {
-                  $destino : "Mercado Público de Florianópolis",
-                  $descricao : "O local é um verdadeiro centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
-                  $localidade : "Centro de Florianópolis/SC - Brasil",
-                  $cep : 88010030,   
-                }
-            }
-        }
+      #swagger.tags = ['Destino']
+      #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Cadastrar um novo destino',
+          required: true,
+          schema: {
+              type: 'object',
+              properties: {
+                  $destino: { type: 'string', example: 'Mercado Público de Florianópolis' },
+                  $descricao: { type: 'string', example: 'O local é um centro de cultura, gastronomia e comércio.' },
+                  $localidade: { type: 'string', example: 'Centro de Florianópolis/SC - Brasil' },
+                  $cep: { type: 'integer', example: 88010030 }
+              }
+          }
+      }
     */
+
     try {
       const usuario_id = req.payload.sub;
       const { destino, descricao, localidade, cep } = req.body;
@@ -78,16 +82,19 @@ class DestinoController {
 
   async listarDestinosPorUsuario(req, res) {
     /*
-            #swagger.tags = ['Destino'],
-            #swagger.parameters['path'] = {
-                in: 'path',
-                description: 'Listar um destino por usuário'
-                path:   /local/:usuario_id:
+      #swagger.tags = ['Destino']
+      #swagger.parameters['usuario_id'] = {
+          in: 'path',
+          description: 'ID do usuário para listar destinos',
+          required: true,
+          type: 'integer'
+      }
     */
 
-    const { usuario_id } = req.params; 
-    const usuarioAutenticadoId = req.payload.sub; 
-    
+
+    const { usuario_id } = req.params;
+    const usuarioAutenticadoId = req.payload.sub;
+
     if (parseInt(usuario_id) !== usuarioAutenticadoId) {
       return res.status(403).json({ mensagem: "Acesso não autorizado." });
     }
@@ -117,7 +124,6 @@ class DestinoController {
     }
   }
 
-
   async listarTodos(req, res) {
     /*
             #swagger.tags = ['Destino'],
@@ -136,20 +142,23 @@ class DestinoController {
 
   async atualizar(req, res) {
     /*
-          #swagger.tags = ['Destino'],
-          #swagger.parameters['body'] = {
-              in: 'body',
-              description: 'Adiciona um novo destino',
-              schema: {
-                  {
-                  $destino : "Mercado Público de Florianópolis",
-                  $descricao : "O local é um centro de cultura, gastronomia e comércio. Os boxes e lojas oferecem desde   produtos artesanais, alimentos frescos, até souvenires típicos da região.",
-                  $localidade : "Centro de Florianópolis/SC - Brasil",
-                  $cep : 88010030,
-                  $coordenadas_geograficas : "-27.59587,-48.55225"  
-                  }
-              }}
-   */
+      #swagger.tags = ['Destino']
+      #swagger.parameters['body'] = {
+          in: 'body',
+          description: 'Atualizar um destino existente',
+          required: true,
+          schema: {
+              type: 'object',
+              properties: {
+                  $destino: { type: 'string', example: 'Mercado Público de Florianópolis' },
+                  $descricao: { type: 'string', example: 'O local é um centro de cultura, gastronomia e comércio.' },
+                  $localidade: { type: 'string', example: 'Centro de Florianópolis/SC - Brasil' },
+                  $cep: { type: 'integer', example: 88010030 },
+                  $coordenadas_geograficas: { type: 'string', example: '-27.59587,-48.55225' }
+              }
+          }
+      }
+    */
 
     try {
       const { id } = req.params;
@@ -164,7 +173,8 @@ class DestinoController {
       }
 
       if (!destino) {
-        return res.status(404).json({ mensagem: "Destino não encontrado." });
+       
+ return res.status(404).json({ mensagem: "Destino não encontrado." });
       }
       destino.update(req.body);
 
@@ -180,10 +190,16 @@ class DestinoController {
   }
 
   async deletarUm(req, res) {
-    /*
-            #swagger.tags = ['Destino'],
-            #swagger.description ='Deletar um destino por id'
+   /*
+      #swagger.tags = ['Destino']
+      #swagger.parameters['id'] = {
+          in: 'path',
+          description: 'ID do destino a ser deletado',
+          required: true,
+          type: 'integer'
+      }
     */
+
 
     const { id } = req.params;
     try {
