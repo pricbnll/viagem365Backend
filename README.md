@@ -163,9 +163,3 @@ Caso tenha alguma dúvida!!
 * Aos melhores colegas de classe de TRIP e NATURE que alguém poderia ter! 
 * Qualquer dúvida ou sugestão de melhorar o código eu aceito - algumas escrevi acima!!!
 
-
-## 	📹 Video de apresentação do MiniProjeto 1
-
-No video fiz uma apresentação rápida do projeto com alguns demostrações no Postman e um objetivo maior de uma comunicação mais assertiva, sem  um roteiro pre determinado. 
-
-[Video] - (https://drive.google.com/file/d/1FjB60UhLORVKXOi2ggWeVaqYoWDFr7Il/view?usp=drive_link)
